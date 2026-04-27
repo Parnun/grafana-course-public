@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+venv/
+.venv/
+
+# Build outputs
+dist/
+build/
+*.zip
+
+# Secrets / env
+.env
+.env.local
+*.secret
+
+# PDF source files (if generated)
+*.pdf
