@@ -21,12 +21,31 @@ for _ in {1..20}; do
   sleep 2
 done
 
-points='lab_metrics,service=api,region=ap-southeast cpu=42.1,memory=68.2
-lab_metrics,service=api,region=ap-southeast cpu=47.6,memory=71.3
-lab_metrics,service=worker,region=ap-southeast cpu=61.2,memory=55.8
-lab_metrics,service=worker,region=ap-southeast cpu=59.8,memory=57.1
-lab_metrics,service=web,region=ap-southeast cpu=35.5,memory=48.9
-lab_metrics,service=web,region=ap-southeast cpu=38.0,memory=52.4'
+start_timestamp=$(( $(date +%s) - 240 ))
+timestamp_1=$start_timestamp
+timestamp_2=$(( start_timestamp + 60 ))
+timestamp_3=$(( start_timestamp + 120 ))
+timestamp_4=$(( start_timestamp + 180 ))
+timestamp_5=$(( start_timestamp + 240 ))
+
+points=$(cat <<EOF
+lab_metrics,service=api,region=ap-southeast cpu=42.0,memory=68.0 $timestamp_1
+lab_metrics,service=api,region=ap-southeast cpu=44.0,memory=69.0 $timestamp_2
+lab_metrics,service=api,region=ap-southeast cpu=46.0,memory=70.0 $timestamp_3
+lab_metrics,service=api,region=ap-southeast cpu=48.0,memory=72.0 $timestamp_4
+lab_metrics,service=api,region=ap-southeast cpu=50.0,memory=73.0 $timestamp_5
+lab_metrics,service=worker,region=ap-southeast cpu=61.0,memory=56.0 $timestamp_1
+lab_metrics,service=worker,region=ap-southeast cpu=60.0,memory=57.0 $timestamp_2
+lab_metrics,service=worker,region=ap-southeast cpu=62.0,memory=58.0 $timestamp_3
+lab_metrics,service=worker,region=ap-southeast cpu=64.0,memory=59.0 $timestamp_4
+lab_metrics,service=worker,region=ap-southeast cpu=63.0,memory=60.0 $timestamp_5
+lab_metrics,service=web,region=ap-southeast cpu=35.0,memory=49.0 $timestamp_1
+lab_metrics,service=web,region=ap-southeast cpu=36.0,memory=50.0 $timestamp_2
+lab_metrics,service=web,region=ap-southeast cpu=38.0,memory=51.0 $timestamp_3
+lab_metrics,service=web,region=ap-southeast cpu=39.0,memory=52.0 $timestamp_4
+lab_metrics,service=web,region=ap-southeast cpu=41.0,memory=53.0 $timestamp_5
+EOF
+)
 
 printf "%s\n" "$points" | docker compose exec -T influxdb influx write \
   --bucket "$DOCKER_INFLUXDB_INIT_BUCKET" \
