@@ -2,6 +2,8 @@
 
 ชุดไฟล์ในโฟลเดอร์นี้ออกแบบสำหรับใช้งานใน GitHub Codespaces เป็นหลัก โดยหลีกเลี่ยงขั้นตอนที่ต้องพึ่ง Kubernetes หรือการตั้งค่าเครื่อง local เพิ่มเติม
 
+อ่าน `../lab-preparation.md` ก่อนเริ่ม lab ครั้งแรก
+
 ลำดับที่แนะนำสำหรับการสอน:
 
 1. `../Exercises/01-setup-grafana-codespaces.md`
