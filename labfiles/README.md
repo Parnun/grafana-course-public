@@ -4,13 +4,13 @@
 
 ลำดับที่แนะนำสำหรับการสอน:
 
-1. `Exercises/01-setup-grafana-codespaces.md`
-2. `Exercises/02-prometheus-data-source.md`
-3. `Exercises/03-influxdb-flux-data-source.md`
-4. `Exercises/04-queries-and-panels.md`
-5. `Exercises/05-dashboard-variables.md`
-6. `Exercises/06-alerting-basics.md`
-7. `Exercises/07-panel-plugin-basics.md`
+1. `../Exercises/01-setup-grafana-codespaces.md`
+2. `../Exercises/02-prometheus-data-source.md`
+3. `../Exercises/03-influxdb-flux-data-source.md`
+4. `../Exercises/04-queries-and-panels.md`
+5. `../Exercises/05-dashboard-variables.md`
+6. `../Exercises/06-alerting-basics.md`
+7. `../Exercises/07-panel-plugin-basics.md`
 
 ข้อกำหนดร่วม:
 

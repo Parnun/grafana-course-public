@@ -185,7 +185,7 @@ PROMETHEUS_URL=http://localhost:9090
 
 | Exercise file | Labfiles folder |
 |---|---|
-| `labfiles/Exercises/03-prometheus-data-source.md` | `labfiles/03-prometheus-data-source/` |
+| `Exercises/03-prometheus-data-source.md` | `labfiles/03-prometheus-data-source/` |
 
 Use kebab-case matching the exercise number prefix exactly.
 
@@ -197,6 +197,6 @@ Use kebab-case matching the exercise number prefix exactly.
 4. **Design for Codespaces first** by validating that the exercise can be completed in GitHub Codespaces without Kubernetes dependencies
 5. **Draft** the full exercise instruction file following all guidelines above
 6. **Add screenshot descriptions** for every UI navigation and result-confirmation step
-7. **Save** the instruction file to `labfiles/Exercises/`
+7. **Save** the instruction file to `Exercises/`
 8. **Create** the matching `labfiles/<exercise-slug>/` folder with all starter files
 9. **Summarize** what was created: the instruction file path, all labfiles created, the Codespaces assumptions, and which steps need actual screenshots captured
