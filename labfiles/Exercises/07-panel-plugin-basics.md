@@ -1,0 +1,123 @@
+---
+lab:
+    title: 'เริ่มต้นสร้าง Grafana Panel plugin ใน GitHub Codespaces'
+    description: 'ผู้เรียนจะ scaffold Panel plugin ด้วย create-plugin และปรับแต่ง panel ตัวอย่างใน Grafana'
+    topic: 'Grafana Plugins'
+    level: 300
+    duration: 60
+    islab: true
+---
+
+# เริ่มต้นสร้าง Grafana Panel plugin ใน GitHub Codespaces
+
+ใน exercise นี้ คุณจะเริ่มต้นสร้าง Grafana Panel plugin จาก tooling ทางการของ Grafana โดยใช้ `@grafana/create-plugin` ภายใน GitHub Codespaces จากนั้นจะเปิด Grafana ที่มาพร้อมกับ plugin scaffold และแก้ไข Panel ตัวอย่างเพื่อยืนยันว่า development workflow ทำงานจริง
+
+This exercise takes approximately **60** minutes.
+
+> **Important**: Exercise นี้ใช้ Node.js LTS และ Docker Compose ตามแนวทางของ Grafana plugin tools หากใน Codespace ของคุณยังไม่มี Node.js เวอร์ชันที่เหมาะสม ให้ตรวจสอบไฟล์ `.nvmrc` ในโฟลเดอร์ lab นี้ก่อนเริ่ม
+
+## Learning Objectives
+
+1. Scaffold Grafana Panel plugin ด้วย `@grafana/create-plugin`
+2. รัน development workflow ของ plugin ใน GitHub Codespaces
+3. ตรวจสอบว่า Grafana ตรวจพบ plugin ใหม่แล้ว
+4. ปรับแก้ source code ของ panel ตัวอย่างและดูผลใน Grafana
+
+## Prerequisites
+
+- ใช้งาน Terminal ใน GitHub Codespaces ได้
+- เข้าใจ TypeScript หรือ React ในระดับพื้นฐาน
+- Docker Compose พร้อมใช้งานใน Codespace
+
+## Scenario
+
+ทีมของคุณต้องการ visualization แบบเฉพาะทางที่ไม่มีอยู่ใน Panel มาตรฐานของ Grafana คุณจึงเริ่มจากการสร้าง Panel plugin ใหม่ด้วย generator ทางการเพื่อให้ได้โครงสร้างโปรเจกต์, Docker Compose, และ development workflow ที่ถูกต้องตั้งแต่ต้น
+
+---
+
+## เตรียม workspace สำหรับ plugin
+
+1. เปิด Terminal แล้วไปที่โฟลเดอร์ lab นี้
+
+   ```bash
+   cd labfiles/07-panel-plugin-basics
+   ```
+
+1. สร้างโฟลเดอร์ย่อยสำหรับ plugin work
+
+   ```bash
+   mkdir -p workspace
+   cd workspace
+   ```
+
+1. รัน generator ทางการของ Grafana
+
+   ```bash
+   npx @grafana/create-plugin@latest
+   ```
+
+1. เมื่อตัว generator ถาม ให้เลือกค่าที่ใกล้เคียงนี้
+
+   - Organization: `student`
+   - Plugin name: `codespace-panel`
+   - Plugin type: `panel`
+
+> 📸 **Screenshot**: Terminal ใน GitHub Codespaces ขณะตอบ prompt ของ `@grafana/create-plugin`
+
+## รัน plugin ในโหมดพัฒนา
+
+1. เข้าไปยังโฟลเดอร์ plugin ที่ generator สร้างให้
+
+   ```bash
+   cd student-codespace-panel
+   ```
+
+1. ติดตั้ง dependencies
+
+   ```bash
+   npm install
+   ```
+
+1. เปิด watcher สำหรับ frontend build
+
+   ```bash
+   npm run dev
+   ```
+
+1. เปิด Terminal ใหม่อีกแท็บหนึ่ง แล้วรัน Grafana ที่มากับ scaffold
+
+   ```bash
+   docker compose up
+   ```
+
+1. เปิด Grafana ผ่าน port `3000` ใน GitHub Codespaces
+
+## ตรวจสอบว่า plugin ถูกโหลดแล้ว
+
+1. ไปที่ **Administration** > **Plugins**
+
+1. ค้นหา plugin ที่ชื่อใกล้เคียงกับ `codespace-panel`
+
+1. หากต้องการยืนยันเพิ่ม ให้ดู log ใน Terminal ที่รัน `docker compose up` และสังเกตข้อความลักษณะ `Plugin registered`
+
+> 📸 **Screenshot**: หน้า **Administration** > **Plugins** ที่แสดง plugin ใหม่จาก scaffold
+
+## แก้ไข panel ตัวอย่าง
+
+1. เปิดไฟล์ `src/components/SimplePanel.tsx`
+
+1. เปลี่ยนข้อความหรือสีของ panel ตามโจทย์ที่ผู้สอนกำหนด
+
+1. บันทึกไฟล์ แล้ว refresh หน้า Grafana
+
+1. ไปที่ **Dashboards** > **New** > **Dashboard** > **Add visualization**
+
+1. ใช้ `TestData DB` เป็น Data source และเลือก panel plugin ของคุณ
+
+1. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
+
+> 📸 **Screenshot**: หน้า panel editor ที่เลือก `TestData DB` และใช้ panel plugin ที่ผู้เรียนสร้างขึ้น
+
+## Result
+
+คุณควรมี Grafana Panel plugin ที่ scaffold จาก tool ทางการ, รันได้ใน GitHub Codespaces, และแก้ไข source code แล้วเห็นผลใน Grafana ได้จริง

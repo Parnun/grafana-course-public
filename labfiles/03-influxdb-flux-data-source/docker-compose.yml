@@ -1,0 +1,27 @@
+services:
+  grafana:
+    image: grafana/grafana:13.0.2
+    container_name: grafana-lab-influx
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: grafanaadmin
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_influx_data:/var/lib/grafana
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb-lab
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+
+volumes:
+  grafana_influx_data: {}
+  influxdb_data: {}

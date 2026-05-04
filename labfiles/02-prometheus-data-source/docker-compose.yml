@@ -1,0 +1,26 @@
+services:
+  grafana:
+    image: grafana/grafana:13.0.2
+    container_name: grafana-lab-prometheus
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: grafanaadmin
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_prom_data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v3.3.1
+    container_name: prometheus-lab
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+volumes:
+  grafana_prom_data: {}

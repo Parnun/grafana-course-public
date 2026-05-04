@@ -1,0 +1,31 @@
+services:
+  grafana:
+    image: grafana/grafana:13.0.2
+    container_name: grafana-lab-alerting
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: grafanaadmin
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_alerting_data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v3.3.1
+    container_name: prometheus-alerting-lab
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  demo-metrics:
+    build: ./alert-demo
+    container_name: demo-metrics-lab
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+volumes:
+  grafana_alerting_data: {}
