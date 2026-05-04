@@ -86,6 +86,12 @@ This exercise takes approximately **45** minutes.
    - Default Bucket: `system`
    - Token: `lab-super-token`
 
+   คำอธิบายของค่าที่สำคัญ:
+
+   - Organization: ชื่อ organization ภายใน InfluxDB ที่ bucket และ token นี้สังกัดอยู่ ใน lab นี้ถูกตั้งค่าไว้เป็น `grafana-lab`
+   - Default Bucket: bucket เริ่มต้นที่ Grafana จะใช้ตอน query ข้อมูล ใน lab นี้ script seed จะเขียนข้อมูลลง bucket ชื่อ `system`
+   - Token: ค่า credential สำหรับให้ Grafana authenticate กับ InfluxDB และอ่านข้อมูลได้ ใน lab นี้ใช้ token เดียวกับที่กำหนดไว้ตอน setup คือ `lab-super-token`
+
 1. คลิก **Save & test** และยืนยันว่าผลลัพธ์สำเร็จ
 
 > 📸 **Screenshot**: หน้า configuration ของ InfluxDB Data source แบบ Flux พร้อมค่าที่กรอกครบถ้วนและผลลัพธ์หลังคลิก **Save & test**
