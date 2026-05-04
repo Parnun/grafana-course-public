@@ -124,3 +124,19 @@ This exercise takes approximately **45** minutes.
 ## Result
 
 คุณควรมี InfluxDB Data source แบบ Flux ที่พร้อมใช้งานใน Grafana และ query ข้อมูลตัวอย่างที่เพิ่ง seed เข้าไปได้สำเร็จ
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. กลับมาที่โฟลเดอร์ของ lab นี้
+
+   ```bash
+   cd labfiles/03-influxdb-flux-data-source
+   ```
+
+1. หยุด stack ของ Grafana และ InfluxDB
+
+   ```bash
+   docker compose down
+   ```
+
+1. อธิบายว่าการหยุด stack ตอนนี้จะช่วยคืน port `3000` และ `8086` ให้พร้อมสำหรับ exercise ถัดไป โดยข้อมูลใน volume ยังไม่ถูกลบทิ้ง

@@ -103,8 +103,24 @@ This exercise takes approximately **30** minutes.
 
 1. อธิบายว่า volume นี้ช่วยเก็บข้อมูลจำพวก configuration, user, dashboard, และ metadata ของ Grafana
 
-1. ปิด lab นี้ไว้โดยยังไม่ต้องรัน `docker compose down` เพื่อให้ environment พร้อมสำหรับการทดลองต่อ
+1. หากจะทำ exercise ถัดไปทันที คุณอาจปล่อย stack นี้ไว้ชั่วคราวได้ แต่ถ้าต้องการ reset environment ให้ทำตามขั้นตอนในหัวข้อท้าย exercise นี้
 
 ## Result
 
 คุณควรมี Grafana ที่เปิดใช้งานได้ใน GitHub Codespaces, login ได้ผ่าน port `3000`, และมี Docker volume สำหรับเก็บข้อมูลเรียบร้อยแล้ว
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. กลับมาที่โฟลเดอร์ของ lab นี้
+
+   ```bash
+   cd labfiles/01-setup-grafana-codespaces
+   ```
+
+1. หยุด container ของ Grafana
+
+   ```bash
+   docker compose down
+   ```
+
+1. อธิบายว่าคำสั่งนี้จะหยุด container และ network ของ lab นี้ แต่จะยังเก็บ Docker volume ไว้ ทำให้เริ่มใหม่ได้ภายหลังโดยไม่ต้องเตรียมข้อมูลใหม่ทั้งหมด

@@ -121,3 +121,23 @@ This exercise takes approximately **60** minutes.
 ## Result
 
 คุณควรมี Grafana Panel plugin ที่ scaffold จาก tool ทางการ, รันได้ใน GitHub Codespaces, และแก้ไข source code แล้วเห็นผลใน Grafana ได้จริง
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. ใน Terminal ที่รัน `npm run dev` ให้กด `Ctrl+C` เพื่อหยุด frontend watcher
+
+1. ใน Terminal ที่รัน `docker compose up` ให้กด `Ctrl+C` เพื่อหยุด foreground process
+
+1. กลับมาที่โฟลเดอร์ plugin ที่ scaffold ขึ้นมา
+
+   ```bash
+   cd labfiles/07-panel-plugin-basics/workspace/student-codespace-panel
+   ```
+
+1. ล้าง container และ network ของ plugin dev stack
+
+   ```bash
+   docker compose down
+   ```
+
+1. หากต้องการเริ่มใหม่ในภายหลัง ให้กลับมาเปิด `npm run dev` และ `docker compose up` อีกครั้งตามลำดับเดิม

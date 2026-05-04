@@ -137,3 +137,19 @@ This exercise takes approximately **40** minutes.
 ## Result
 
 คุณควรมี Prometheus Data source ที่ใช้งานได้ใน Grafana และสามารถ query metrics แรกผ่านหน้า **Explore** ได้สำเร็จ
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. กลับมาที่โฟลเดอร์ของ lab นี้
+
+   ```bash
+   cd labfiles/02-prometheus-data-source
+   ```
+
+1. หยุด stack ของ Grafana และ Prometheus
+
+   ```bash
+   docker compose down
+   ```
+
+1. ยืนยันว่าคุณไม่เหลือ container ที่ใช้ port `3000` หรือ `9090` จาก exercise นี้ เพื่อให้ exercise ถัดไปเริ่มได้โดยไม่มี port conflict

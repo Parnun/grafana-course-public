@@ -106,3 +106,21 @@ This exercise takes approximately **45** minutes.
 ## Result
 
 คุณควรมี Grafana-managed Alert rule ที่อ้างอิง Prometheus metric จริง และสามารถเปลี่ยนสถานะตาม traffic ที่คุณสร้างขึ้นจากภายใน GitHub Codespaces ได้
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. หาก script `./generate-traffic.sh` ยังทำงานอยู่ใน Terminal ให้หยุดด้วย `Ctrl+C`
+
+1. กลับมาที่โฟลเดอร์ของ lab นี้
+
+   ```bash
+   cd labfiles/06-alerting-basics
+   ```
+
+1. หยุด stack ของ Grafana, Prometheus และ service ตัวอย่าง
+
+   ```bash
+   docker compose down
+   ```
+
+1. อธิบายว่าการ cleanup นี้ช่วยหยุด alert evaluation และคืน port ที่ใช้ใน exercise นี้ก่อนเริ่ม lab ถัดไป

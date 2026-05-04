@@ -114,3 +114,19 @@ This exercise takes approximately **45** minutes.
 ## Result
 
 คุณควรมี dashboard แรกที่ประกอบด้วยอย่างน้อยหนึ่ง Time series panel และหนึ่ง Stat panel ซึ่งดึงข้อมูลจาก Prometheus ได้จริง
+
+## เตรียม environment สำหรับ exercise ถัดไป
+
+1. กลับมาที่โฟลเดอร์ของ lab นี้
+
+   ```bash
+   cd labfiles/04-queries-and-panels
+   ```
+
+1. หยุด stack ของ Grafana และ Prometheus
+
+   ```bash
+   docker compose down
+   ```
+
+1. ตรวจสอบอย่างเร็วว่าไม่มี container ค้างจาก lab นี้ เพื่อให้ dashboard และ port จาก exercise นี้ไม่รบกวน exercise ถัดไป
