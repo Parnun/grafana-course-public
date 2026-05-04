@@ -21,6 +21,13 @@ for _ in {1..20}; do
   sleep 2
 done
 
+docker compose exec -T influxdb influx delete \
+  --bucket "$DOCKER_INFLUXDB_INIT_BUCKET" \
+  --org "$DOCKER_INFLUXDB_INIT_ORG" \
+  --token "$DOCKER_INFLUXDB_INIT_ADMIN_TOKEN" \
+  --start '1970-01-01T00:00:00Z' \
+  --stop '2100-01-01T00:00:00Z'
+
 start_timestamp=$(( $(date +%s) - 240 ))
 timestamp_1=$start_timestamp
 timestamp_2=$(( start_timestamp + 60 ))
