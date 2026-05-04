@@ -89,6 +89,12 @@ This exercise takes approximately **40** minutes.
    up
    ```
 
+   ตัวอย่างผลลัพธ์ในมุมมองแบบ Table:
+
+   ```text
+   up{instance="localhost:9090", job="prometheus"} 1
+   ```
+
 1. สังเกตผลลัพธ์แบบ Table หรือ Time series ว่ามีค่า `1` สำหรับ target ที่ตอบสนองปกติ
 
 1. รัน query เพิ่มเติมเพื่อดู metadata ของ Prometheus เอง
@@ -97,11 +103,26 @@ This exercise takes approximately **40** minutes.
    prometheus_build_info
    ```
 
+   ตัวอย่างผลลัพธ์ในมุมมองแบบ Table:
+
+   ```text
+   prometheus_build_info{branch="HEAD", instance="localhost:9090", job="prometheus", version="3.3.1", ...} 1
+   ```
+
 1. ทดลอง query แบบมี aggregation เบื้องต้น
 
    ```promql
    rate(prometheus_http_requests_total[5m])
    ```
+
+   ตัวอย่างผลลัพธ์ในมุมมองแบบ Table:
+
+   ```text
+   {code="200", handler="/", instance="localhost:9090", job="prometheus"} 0
+   {code="200", handler="/api/v1/*path", instance="localhost:9090", job="prometheus"} 0
+   ```
+
+   ในช่วงที่เพิ่งเริ่ม stack ใหม่ ๆ ค่า rate อาจเป็น `0` หรือมีเพียงไม่กี่ series เพราะยังมี request เข้า Prometheus ไม่มาก
 
 > 📸 **Screenshot**: หน้า **Explore** ที่แสดงผลลัพธ์จาก query `up` หรือ `prometheus_build_info`
 
