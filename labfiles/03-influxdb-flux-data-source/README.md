@@ -9,3 +9,11 @@ cp .env.example .env
 docker compose up -d
 ./scripts/seed-influx.sh
 ```
+
+สำหรับ Windows Command Prompt:
+
+```bat
+copy .env.example .env
+docker compose up -d
+scripts\seed-influx.cmd
+```

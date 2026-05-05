@@ -95,6 +95,12 @@ This exercise takes approximately **45** minutes.
    ./generate-traffic.sh
    ```
 
+   หากรันบน Windows Command Prompt ให้ใช้คำสั่งนี้แทน:
+
+   ```bat
+   generate-traffic.cmd
+   ```
+
 1. เปิดหน้า **Alert rules** ใน Grafana และรอสักครู่ให้มีการ evaluate ตาม interval ที่กำหนด
 
 1. สังเกตว่าสถานะของ `High Demo Traffic` เปลี่ยนจาก `Normal` ไปเป็น `Pending` หรือ `Firing`
@@ -109,7 +115,7 @@ This exercise takes approximately **45** minutes.
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 
-1. หาก script `./generate-traffic.sh` ยังทำงานอยู่ใน Terminal ให้หยุดด้วย `Ctrl+C`
+1. หาก script กระตุ้น traffic (`./generate-traffic.sh` หรือ `generate-traffic.cmd`) ยังทำงานอยู่ใน Terminal ให้หยุดด้วย `Ctrl+C`
 
 1. กลับมาที่โฟลเดอร์ของ lab นี้
 

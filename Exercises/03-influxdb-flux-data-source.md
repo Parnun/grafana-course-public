@@ -51,6 +51,12 @@ This exercise takes approximately **45** minutes.
    cp .env.example .env
    ```
 
+   หากรันบน Windows Command Prompt ให้ใช้คำสั่งนี้แทน:
+
+   ```bat
+   copy .env.example .env
+   ```
+
 1. เปิด stack ของ Grafana และ InfluxDB
 
    ```bash
@@ -63,9 +69,15 @@ This exercise takes approximately **45** minutes.
    ./scripts/seed-influx.sh
    ```
 
+   หากรันบน Windows Command Prompt ให้ใช้คำสั่งนี้แทน:
+
+   ```bat
+   scripts\seed-influx.cmd
+   ```
+
 1. ตรวจสอบว่า script รายงานข้อความว่าการเขียนข้อมูลเสร็จสมบูรณ์
 
-> 📸 **Screenshot**: Terminal ใน GitHub Codespaces หลังรัน `docker compose up -d` และ `./scripts/seed-influx.sh` สำเร็จ
+ > 📸 **Screenshot**: Terminal หลังรัน `docker compose up -d` และ script seed สำเร็จ (`./scripts/seed-influx.sh` หรือ `scripts\\seed-influx.cmd`)
 
 ## เพิ่ม InfluxDB Data source
 
