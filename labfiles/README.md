@@ -19,3 +19,7 @@
 - เปิดใช้งาน exercise แต่ละข้อจากโฟลเดอร์ของตัวเอง
 - หาก GitHub Codespaces ถามเรื่อง port visibility ให้เลือกเปิดเป็น preview หรือ browser tab ได้ตามสะดวก
 - หากมี Container ค้างจาก exercise ก่อนหน้า ให้รัน `docker compose down` ในโฟลเดอร์นั้นก่อนเริ่ม exercise ถัดไป
+
+## Publishing Notes
+
+แนวทาง publish แบบสอง remote และกฎการกรองไฟล์สำหรับ `origin/main` อยู่ที่ `../PUBLISHING.md`

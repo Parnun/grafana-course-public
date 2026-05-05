@@ -1,0 +1,89 @@
+name: Publish Filtered Content To Origin
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-origin-main
+  cancel-in-progress: false
+
+jobs:
+  publish-origin-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate required secret
+        env:
+          ORIGIN_PUSH_TOKEN: ${{ secrets.ORIGIN_PUSH_TOKEN }}
+        run: |
+          if [[ -z "${ORIGIN_PUSH_TOKEN}" ]]; then
+            echo "Missing ORIGIN_PUSH_TOKEN secret in this repository."
+            echo "Add a fine-grained PAT or deploy key credential before enabling publish automation."
+            exit 1
+          fi
+
+      - name: Build filtered publish workspace
+        run: |
+          rm -rf /tmp/publish-origin-main
+          mkdir -p /tmp/publish-origin-main
+          rsync -a ./ /tmp/publish-origin-main/ \
+            --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='source-engine/'
+
+      - name: Publish filtered snapshot to origin/main
+        env:
+          ORIGIN_PUSH_TOKEN: ${{ secrets.ORIGIN_PUSH_TOKEN }}
+          ORIGIN_REPO: ${{ vars.ORIGIN_REPO || 'teerasej/grafana-for-developer-origin' }}
+        run: |
+          set -euo pipefail
+
+          SOURCE_SHA="${GITHUB_SHA}"
+          SOURCE_REPO="${GITHUB_REPOSITORY}"
+          PUSH_URL="https://x-access-token:${ORIGIN_PUSH_TOKEN}@github.com/${ORIGIN_REPO}.git"
+
+          cd /tmp/publish-origin-main
+
+          git init
+          git config user.name "origin-publisher[bot]"
+          git config user.email "origin-publisher[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Filtered workspace is empty; skipping publish."
+            exit 0
+          fi
+
+          git commit -m "publish: ${SOURCE_SHA}"
+
+          REMOTE_MAIN_SHA="$(git ls-remote "${PUSH_URL}" refs/heads/main | awk '{print $1}')"
+
+          if [[ -n "${REMOTE_MAIN_SHA}" ]]; then
+            git fetch "${PUSH_URL}" refs/heads/main:refs/remotes/origin-public/main
+
+            NEW_TREE="$(git rev-parse HEAD^{tree})"
+            OLD_TREE="$(git rev-parse refs/remotes/origin-public/main^{tree})"
+
+            if [[ "${NEW_TREE}" == "${OLD_TREE}" ]]; then
+              echo "No content changes after filtering; origin/main is already up to date."
+              exit 0
+            fi
+
+            git push "${PUSH_URL}" HEAD:refs/heads/main \
+              --force-with-lease=refs/heads/main:${REMOTE_MAIN_SHA}
+          else
+            git push "${PUSH_URL}" HEAD:refs/heads/main
+          fi
+
+          echo "Published filtered snapshot from ${SOURCE_REPO}@${SOURCE_SHA} to ${ORIGIN_REPO}:main"
