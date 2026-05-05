@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="115" y="180" width="200" height="120" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="215" y="238.32">Data Source</tspan><tspan x="215" y="270.52">Plugin</tspan></text>
+  
+      
+    <rect x="360" y="180" width="200" height="120" rx="18" fill="#EAF2FF" stroke="#2F6FEB" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="460" y="238.32">Panel</tspan><tspan x="460" y="270.52">Plugin</tspan></text>
+  
+      
+    <rect x="605" y="180" width="200" height="120" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="705" y="238.32">App</tspan><tspan x="705" y="270.52">Plugin</tspan></text>
+  
+    
+</svg>

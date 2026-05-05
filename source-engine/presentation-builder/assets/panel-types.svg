@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="120" y="110" width="280" height="260" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#17324D"><tspan x="260" y="237.7">Time series</tspan><tspan x="260" y="272.2">เหมาะกับแนวโน้มตามเวลา</tspan></text>
+  
+      <polyline points="160,315 215,255 275,280 335,205" fill="none" stroke="#2F6FEB" stroke-width="6"/>
+      
+    <rect x="520" y="110" width="280" height="260" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#17324D"><tspan x="660" y="237.7">Stat</tspan><tspan x="660" y="272.2">เหมาะกับค่าปัจจุบัน</tspan></text>
+  
+      <text x="660" y="255" text-anchor="middle" font-family="Arial" font-size="72" fill="#2F6FEB">1</text>
+    
+</svg>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="345" y="180" width="230" height="120" rx="18" fill="#EAF2FF" stroke="#2F6FEB" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#17324D"><tspan x="460" y="247">Grafana</tspan></text>
+  
+      
+    <rect x="70" y="90" width="190" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="165" y="142">Prometheus</tspan></text>
+  
+      
+    <rect x="70" y="320" width="190" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="165" y="372">InfluxDB</tspan></text>
+  
+      
+    <rect x="660" y="90" width="190" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="755" y="142">Dashboard</tspan></text>
+  
+      
+    <rect x="660" y="210" width="190" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="755" y="262">Explore</tspan></text>
+  
+      
+    <rect x="660" y="330" width="190" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="755" y="382">Alerting</tspan></text>
+  
+      
+    <defs>
+      <marker id="arrow-260-135-345-210" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="260" y1="135" x2="345" y2="210" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-260-135-345-210)"/>
+  
+      
+    <defs>
+      <marker id="arrow-260-365-345-270" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="260" y1="365" x2="345" y2="270" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-260-365-345-270)"/>
+  
+      
+    <defs>
+      <marker id="arrow-575-210-660-135" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="575" y1="210" x2="660" y2="135" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-575-210-660-135)"/>
+  
+      
+    <defs>
+      <marker id="arrow-575-240-660-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="575" y1="240" x2="660" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-575-240-660-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-575-270-660-375" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="575" y1="270" x2="660" y2="375" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-575-270-660-375)"/>
+  
+    
+</svg>

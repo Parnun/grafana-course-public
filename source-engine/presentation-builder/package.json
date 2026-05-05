@@ -1,0 +1,16 @@
+{
+  "name": "presentation-builder",
+  "version": "1.0.0",
+  "description": "Builder for the Grafana for Developer presentation deck",
+  "main": "generate-course-presentation.js",
+  "scripts": {
+    "build": "node generate-course-presentation.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      <rect x="70" y="60" width="780" height="400" rx="24" fill="#FFFFFF" stroke="#C9DCFF" stroke-width="2"/>
+      <rect x="70" y="60" width="780" height="56" rx="24" fill="#EAF2FF"/>
+      <circle cx="110" cy="88" r="8" fill="#91B4FF"/>
+      <circle cx="138" cy="88" r="8" fill="#91B4FF"/>
+      <circle cx="166" cy="88" r="8" fill="#91B4FF"/>
+      <text x="240" y="95" font-family="Arial" font-size="22" fill="#17324D">Docker Desktop</text>
+      
+    <rect x="110" y="150" width="190" height="250" rx="18" fill="#F7FAFF" stroke="#D8E6FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#17324D"><tspan x="205" y="265.88">Containers</tspan><tspan x="205" y="295.78">Images</tspan><tspan x="205" y="325.68">Volumes</tspan></text>
+  
+      
+    <rect x="340" y="150" width="430" height="110" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="555" y="212">grafana  |  Running  |  Port 3000</tspan></text>
+  
+      
+    <rect x="340" y="290" width="430" height="110" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="555" y="352">prometheus  |  Running  |  Port 9090</tspan></text>
+  
+      <text x="555" y="440" text-anchor="middle" font-family="Arial" font-size="22" fill="#5E748C">ดูสถานะ service และจัดการ resource ได้สะดวก</text>
+    
+</svg>

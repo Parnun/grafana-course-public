@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="70" y="210" width="180" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#17324D"><tspan x="160" y="262">Seed Script</tspan></text>
+  
+      
+    <rect x="360" y="210" width="180" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="450" y="262">InfluxDB</tspan></text>
+  
+      
+    <rect x="650" y="210" width="180" height="90" rx="18" fill="#EAF2FF" stroke="#2F6FEB" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="740" y="262">Grafana</tspan></text>
+  
+      
+    <defs>
+      <marker id="arrow-250-255-360-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="250" y1="255" x2="360" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-250-255-360-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-540-255-650-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="540" y1="255" x2="650" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-540-255-650-255)"/>
+  
+      <text x="450" y="170" text-anchor="middle" font-family="Arial" font-size="24" fill="#5E748C">Organization + Bucket + Token + Flux</text>
+      <text x="450" y="355" text-anchor="middle" font-family="Arial" font-size="24" fill="#5E748C">query time series จาก measurement ที่ seed ไว้</text>
+    
+</svg>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="40" y="210" width="120" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="100" y="262">Setup</tspan></text>
+  
+      
+    <rect x="190" y="210" width="130" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="255" y="262">Sources</tspan></text>
+  
+      
+    <rect x="350" y="210" width="130" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="415" y="262">Panels</tspan></text>
+  
+      
+    <rect x="510" y="210" width="130" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="575" y="262">Alerts</tspan></text>
+  
+      
+    <rect x="670" y="210" width="130" height="90" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="735" y="262">Variables</tspan></text>
+  
+      
+    <rect x="810" y="210" width="80" height="90" rx="18" fill="#EAF2FF" stroke="#2F6FEB" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#17324D"><tspan x="850" y="262">Plugins</tspan></text>
+  
+      
+    <defs>
+      <marker id="arrow-160-255-190-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="160" y1="255" x2="190" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-160-255-190-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-320-255-350-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="320" y1="255" x2="350" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-320-255-350-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-480-255-510-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="480" y1="255" x2="510" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-480-255-510-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-640-255-670-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="640" y1="255" x2="670" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-640-255-670-255)"/>
+  
+      
+    <defs>
+      <marker id="arrow-800-255-810-255" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="800" y1="255" x2="810" y2="255" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-800-255-810-255)"/>
+  
+    
+</svg>
