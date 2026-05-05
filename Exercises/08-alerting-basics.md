@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะสร้าง Grafana-managed Alert rule จาก metric ที่เก็บใน Prometheus แล้วทดลองกระตุ้น metric ให้เงื่อนไข alert เป็นจริงผ่าน script ภายใน GitHub Codespaces เพื่อดูการเปลี่ยนสถานะจาก `Normal` ไปเป็น `Pending` หรือ `Firing`
 
-This exercise takes approximately **45** minutes.
 
 > **Note**: Lab นี้โฟกัสที่การสร้างและตรวจสอบสถานะของ Alert rule ใน Grafana เป็นหลัก ไม่ได้เน้นการส่ง notification ออกภายนอกจริง
 
@@ -85,8 +84,6 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Save rule**
 
-> 📸 **Screenshot**: หน้า New alert rule ที่แสดง query `increase(demo_requests_total[1m])` และ threshold `> 10`
-
 ## กระตุ้น metric ให้ alert ทำงาน
 
 1. กลับมาที่ Terminal แล้วรัน script นี้เพื่อยิง request ไปยัง service ตัวอย่าง
@@ -107,7 +104,6 @@ This exercise takes approximately **45** minutes.
 
 1. อธิบายกับผู้เรียนว่า query ใช้ `increase()` เพื่อรวมจำนวน request ที่เกิดขึ้นในช่วงเวลา 1 นาที ทำให้เห็น spike ได้ง่ายกว่าใช้ค่าดิบของ counter
 
-> 📸 **Screenshot**: หน้า **Alert rules** ที่แสดงสถานะของ `High Demo Traffic` หลังจาก trigger traffic แล้ว
 
 ## Result
 

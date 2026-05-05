@@ -1,6 +1,6 @@
 # Grafana for Developer Presentation Outline
 
-- Language: Thai
+- Language: English
 - Style: minimal, clean, white-blue
 - Outputs:
   - `grafana-for-developer-presentation-outline.md`
@@ -8,298 +8,365 @@
 
 ## Slide List
 
-### 1. Docker และ Container คืออะไร
+### 1. What is Docker and Containers?
 
 - Section: Docker Basics
-- Container คือการแพ็กแอปพร้อม dependency ให้รันซ้ำได้เหมือนกัน
-- แยก environment ของแต่ละงานออกจากกันโดยไม่ต้องสร้าง VM เต็มรูปแบบ
-- เหมาะกับงาน lab เพราะเริ่มต้นเร็วและ reset ได้ง่าย
+- A container packages an app with its dependencies so it runs identically anywhere
+- Isolates each service environment without the overhead of a full VM
+- Ideal for labs: fast to start, easy to reset
 - Visual: docker-vs-vm
-- Speaker note: เปิดด้วยภาพใหญ่ก่อนว่าเราใช้ Container เพื่อให้ผู้เรียนทุกคนเริ่มจาก baseline เดียวกัน ไม่ต้องเสียเวลากับการติดตั้งที่เครื่องแต่ละคนต่างกัน จากนั้นค่อยย้ำว่า Docker เป็นเครื่องมือที่นิยมใช้จัดการ container เหล่านี้.
+- Speaker note: Open with the big picture — we use containers so every learner starts from the same baseline without spending time on machine-specific installs. Then reinforce that Docker is the tool we use to manage these containers throughout the course.
 
-### 2. Container ทำงานบนคอมพิวเตอร์อย่างไร
+### 2. How Containers Work on a Computer
 
 - Section: Docker Basics
-- Container ใช้ kernel ของ host ร่วมกัน แต่แยก process, network และ filesystem
-- หลาย container รันพร้อมกันได้บนเครื่องเดียว
-- แต่ละ service จึงถูกแยกบทบาทชัดเจนและดูแลได้ง่ายขึ้น
+- Containers share the host kernel but isolate their process, network, and filesystem
+- Many containers can run simultaneously on a single machine
+- Each service has a clear, separate role and is easier to maintain
 - Visual: host-engine-containers
-- Speaker note: สไลด์นี้ช่วยแก้ความเข้าใจผิดว่า container คือเครื่องเสมือนอีกเครื่องหนึ่ง ให้ชี้ว่าจริง ๆ แล้วมันคือ process ที่ถูก isolate และจัดการทรัพยากรผ่าน engine เดียวกัน.
+- Speaker note: This slide corrects the common misconception that a container is just another virtual machine. Point out that it is really an isolated process managed through the same engine.
 
-### 3. ส่วนประกอบสำคัญ: Image, Container, Volume, Network
+### 3. Key Components: Image, Container, Volume, Network
 
 - Section: Docker Basics
-- Image คือแม่แบบสำหรับสร้าง container
-- Container คือ instance ที่กำลังรันจริง
-- Volume เก็บข้อมูลถาวร และ Network ทำให้ service คุยกันได้
+- An Image is the template used to create a container
+- A Container is the live, running instance
+- A Volume stores persistent data; a Network lets services communicate
 - Visual: image-container-volume-network
-- Speaker note: ให้ใช้สไลด์นี้เป็นคำศัพท์กลางของทั้งคอร์ส เพราะหลังจากนี้ผู้เรียนจะเห็นคำเหล่านี้ตลอดใน Docker Compose และ lab ของ Grafana.
+- Speaker note: Establish this as the shared vocabulary for the entire course. Learners will see these terms throughout every Docker Compose file and every Grafana lab.
 
-### 4. Docker Desktop คืออะไร
+### 4. Docker Desktop
 
 - Section: Docker Basics
-- Docker Desktop คือเครื่องมือใช้งาน Docker บนเครื่องผู้ใช้แบบ local
-- มีทั้ง UI, resource settings และดู container ได้สะดวก
-- ในคอร์สนี้เราจะใช้ GitHub Codespaces เป็นหลัก แต่แนวคิดเหมือนกัน
+- Docker Desktop is the local GUI tool for running Docker on your own machine
+- Provides UI, resource settings, and a convenient container overview
+- This course uses GitHub Codespaces primarily, but the concepts are identical
 - Visual: docker-desktop-mock
-- Speaker note: บอกผู้เรียนว่าถ้ากลับไปทำต่อบนเครื่องตัวเอง Docker Desktop คือหน้าตาที่จะพบเจอบ่อย แต่ในห้องเรียนวันนี้ workflow หลักจะเกิดใน Codespaces เพื่อให้ทุกคนเห็นสภาพแวดล้อมเดียวกัน.
+- Speaker note: Tell learners that Docker Desktop is what they will see when working locally after the course. In the classroom today the main workflow happens inside Codespaces so everyone sees the same environment.
 
-### 5. คำสั่ง Docker พื้นฐานที่ควรรู้
-
-- Section: Docker Basics
-- ดู container ที่กำลังรันด้วย `docker ps`
-- ดู image ในเครื่องด้วย `docker images`
-- ดู log ด้วย `docker logs <name>` และเข้า shell ด้วย `docker exec -it <name> sh`
-- Visual: Command quick list
-- Speaker note: ไม่ต้องสอนทุกคำสั่งลึกมาก จุดประสงค์ของสไลด์นี้คือให้ผู้เรียนมี survival kit สำหรับดูสถานะและ debug lab เบื้องต้นได้ด้วยตัวเอง.
-
-### 6. Docker Compose สำหรับงานหลาย service
+### 5. Essential Docker Commands
 
 - Section: Docker Basics
-- ใช้ไฟล์เดียวกำหนดหลาย service พร้อมกัน
-- เริ่ม stack ด้วย `docker compose up -d`
-- หยุดและล้าง network ด้วย `docker compose down`
+- List running containers with `docker ps`
+- List local images with `docker images`
+- Read logs with `docker logs <name>`; open a shell with `docker exec -it <name> sh`
+- Visual: Command Quick List
+- Speaker note: No need to go deep on every command. The goal is to give learners a survival kit so they can check status and do basic debugging on their own during labs.
+
+### 6. Docker Compose for Multi-Service Stacks
+
+- Section: Docker Basics
+- One file defines all services together
+- Start the stack with `docker compose up -d`
+- Stop and clean up the network with `docker compose down`
 - Visual: compose-stack
-- Speaker note: สไลด์นี้เป็นสะพานไปสู่ lab ของ Grafana โดยตรง เพราะแทบทุก exercise ใน repo ใช้ Compose เพื่อยก Grafana, Prometheus และ InfluxDB ขึ้นมาพร้อมกัน.
+- Speaker note: This slide is the direct bridge to the Grafana labs. Almost every exercise in this repo uses Compose to bring up Grafana, Prometheus, and InfluxDB together.
 
-### 7. Grafana คืออะไร
+### 7. What is Grafana?
 
 - Section: Introduction to Grafana
-- Grafana ใช้สำรวจข้อมูล สร้าง dashboard และ monitor ระบบ
-- รองรับ data source ได้หลายแบบ เช่น Prometheus และ InfluxDB
-- เหมาะทั้งกับนักพัฒนา ทีม platform และงาน observability
+- Grafana is used to explore data, build dashboards, and monitor systems
+- Supports multiple data source types such as Prometheus and InfluxDB
+- Suitable for developers, platform teams, and observability workflows
 - Visual: grafana-capabilities
-- Speaker note: เริ่มหัวข้อ Grafana ด้วยมุมมองระดับธุรกิจว่า Grafana ไม่ใช่แค่เครื่องมือทำกราฟ แต่เป็นจุดรวมของการ query, visualize และตอบคำถามจากข้อมูล.
+- Speaker note: Introduce Grafana from a business perspective — it is not just a charting tool but a central place for querying, visualizing, and answering questions from data.
 
-### 8. ความสามารถหลักของ Grafana
-
-- Section: Introduction to Grafana
-- Explore ใช้ทดลอง query และดูข้อมูลสด
-- Dashboard และ Panel ใช้จัดข้อมูลให้อ่านเร็ว
-- Alerting ใช้จับเงื่อนไขสำคัญ และ Plugins ใช้ขยายความสามารถ
-- Visual: 4 แกนหลักของคอร์ส
-- Speaker note: ให้โยง 4 คำนี้กับสิ่งที่ผู้เรียนจะได้ทำจริงในคอร์ส เพื่อสร้าง mental map ตั้งแต่ต้นว่าแต่ละ exercise อยู่ตรงไหนของภาพรวมทั้งหมด.
-
-### 9. Grafana Architecture แบบพื้นฐาน
+### 8. Core Capabilities of Grafana
 
 - Section: Introduction to Grafana
-- ผู้ใช้เข้าผ่าน browser ไปยัง Grafana UI
-- Grafana ส่ง query ไปยัง data source ที่เลือก
-- ผลลัพธ์ถูกใช้ทั้งใน dashboard, explore และ alerting
+- Explore: experiment with queries and view live data
+- Dashboards and Panels: organize data for fast reading
+- Alerting: detect important conditions; Plugins: extend capabilities
+- Visual: 4 Pillars of the Course
+- Speaker note: Connect these four pillars to what learners will actually do in the course. This builds a mental map from the start so they know where each exercise fits in the overall picture.
+
+### 9. Basic Grafana Architecture
+
+- Section: Introduction to Grafana
+- Users reach Grafana UI through a browser
+- Grafana sends queries to the selected data source
+- Results are used across dashboards, Explore, and alerting
 - Visual: grafana-architecture
-- Speaker note: ใช้สไลด์นี้ทำให้ data flow ชัดเจนก่อนเริ่มติดตั้งจริง โดยเน้นว่า Grafana ไม่ได้เก็บ metrics ทั้งหมดไว้เอง แต่ทำหน้าที่เชื่อมและแสดงผลจากระบบข้อมูลต่าง ๆ.
+- Speaker note: Use this slide to make the data flow clear before the first real installation. Emphasize that Grafana does not store all metrics itself — it connects to and visualizes data from external systems.
 
-### 10. การเตรียมระบบสำหรับติดตั้ง Grafana
+### 10. Preparing the System for Grafana
 
 - Section: Installation and Configuration
-- คอร์สนี้ใช้ GitHub Codespaces เป็น lab environment กลาง
-- ต้องมี Docker, Docker Compose และ port forwarding พร้อมใช้งาน
-- ไฟล์สำคัญที่พบได้บ่อยคือ `.env` และ `docker-compose.yml`
+- This course uses GitHub Codespaces as the shared lab environment
+- Docker, Docker Compose, and port forwarding must be available
+- Key files you will see in every lab: `.env` and `docker-compose.yml`
 - Visual: codespaces-setup
-- Speaker note: อธิบายเหตุผลเชิงการสอนว่าการใช้ Codespaces ลดความเสี่ยงเรื่องเครื่องผู้เรียนไม่เหมือนกัน และทำให้ผู้สอน support ได้ง่ายกว่า local setup แบบกระจัดกระจาย.
+- Speaker note: Explain the pedagogical reason for using Codespaces — it reduces risk from machine differences and makes instructor support easier than scattered local setups.
 
-### 11. การติดตั้งและเปิดใช้งาน Grafana
-
-- Section: Installation and Configuration
-- เข้าโฟลเดอร์ lab แล้วรัน `docker compose up -d`
-- ตรวจสอบสถานะด้วย `docker compose ps`
-- เปิด Grafana ผ่าน forwarded port `3000` และ login ด้วยค่าของ lab
-- Visual: Flow สั้น ๆ
-- Speaker note: เล่าขั้นตอนแบบสั้น กระชับ และย้ำว่าผู้เรียนจะเห็น pattern เดิมซ้ำ ๆ ในหลาย exercise จึงควรจดจำ flow นี้ให้ได้.
-
-### 12. สลับไปทำ Exercise 01: Setup Grafana
+### 11. Installing and Running Grafana
 
 - Section: Installation and Configuration
-- เปิดไฟล์ `Exercises/01-setup-grafana-codespaces.md`
-- เริ่ม Grafana ใน Codespaces และตรวจสอบ port `3000`
-- ยืนยันว่า login ได้และเข้าใจบทบาทของ Docker volume
+- Navigate to the lab folder and run `docker compose up -d`
+- Check status with `docker compose ps`
+- Open Grafana via forwarded port `3000` and log in with the lab credentials
+- Visual: Startup Flow
+- Speaker note: Keep this brief and reinforce that learners will see this same pattern repeating in most exercises, so they should internalize this flow.
+
+### 12. Lab: Exercise 01 — Setup Grafana
+
+- Section: Installation and Configuration
+- Open `Exercises/01-setup-grafana-codespaces.md`
+- Start Grafana in Codespaces and verify port `3000` is forwarded
+- Confirm login works and understand the role of Docker volumes for persistence
 - Exercise file: `Exercises/01-setup-grafana-codespaces.md`
-- Expected outcomes: เปิด Grafana ได้ / เข้าใจ port forwarding / เห็น persistent volume
-- Speaker note: หยุดบรรยายที่สไลด์นี้แล้วพาผู้เรียนลงมือทำทันที เป้าหมายคือให้ทุกคนมี Grafana ที่พร้อมใช้งานก่อนเข้าสู่หัวข้อ data source.
+- Expected outcomes: Grafana running / Port forwarding understood / Persistent volume observed
+- Speaker note: Pause the lecture here and have learners work hands-on immediately. The goal is for everyone to have a working Grafana instance before moving to data sources.
 
-### 13. Data Source ใน Grafana คืออะไร
+### 13. What is a Data Source in Grafana?
 
 - Section: Working with Data Sources
-- Data source คือจุดเชื่อมระหว่าง Grafana กับระบบข้อมูลจริง
-- แต่ละ data source ใช้รูปแบบ query และ auth ต่างกัน
-- การเลือก data source ที่เหมาะสมทำให้ dashboard ตอบโจทย์ได้ดีขึ้น
+- A data source is the connection point between Grafana and a real data system
+- Each data source has its own query language and authentication method
+- Choosing the right data source helps dashboards answer the right questions
 - Visual: datasource-hub
-- Speaker note: ใช้สไลด์นี้ก่อนลงรายละเอียดแต่ละระบบ เพื่อให้ผู้เรียนเข้าใจว่ากราฟใน Grafana เริ่มจากการเลือกแหล่งข้อมูลที่เหมาะ ไม่ใช่เริ่มจากหน้าตา panel.
+- Speaker note: Use this slide before diving into individual systems so learners understand that graphs in Grafana always start with picking the right data source, not with choosing a panel type.
 
 ### 14. Prometheus Data Source
 
 - Section: Working with Data Sources
-- Prometheus เหมาะกับ metrics แบบ time series และใช้ PromQL
-- ใน lab ใช้ URL เป็น `http://prometheus:9090`
-- เริ่มสำรวจข้อมูลได้ทันทีผ่านหน้า Explore
+- Prometheus is ideal for time-series metrics and uses PromQL
+- In the lab, the URL is `http://prometheus:9090`
+- Start exploring data immediately through the Explore page
 - Visual: prometheus-flow
-- Speaker note: จุดที่ควรย้ำคือเรื่อง service name ใน Docker Compose ว่าภายใน network เดียวกันเราใช้ `prometheus` แทน `localhost` เพื่อให้ผู้เรียนไม่สับสนเวลา config.
+- Speaker note: The key point to reinforce is that inside a Docker Compose network we use the service name `prometheus` instead of `localhost`. Make sure learners do not get confused when configuring the data source.
 
-### 15. สลับไปทำ Exercise 02: Prometheus Data Source
+### 15. Lab: Exercise 02 — Prometheus Data Source
 
 - Section: Working with Data Sources
-- เปิดไฟล์ `Exercises/02-prometheus-data-source.md`
-- เพิ่ม Prometheus ผ่าน Grafana UI แล้วกด Save & test
-- ทดลอง query `up` และ `prometheus_build_info`
+- Open `Exercises/02-prometheus-data-source.md`
+- Add Prometheus via the Grafana UI and click Save & test
+- Try querying `up` and `prometheus_build_info` in Explore
 - Exercise file: `Exercises/02-prometheus-data-source.md`
-- Expected outcomes: เพิ่ม Prometheus สำเร็จ / ทดสอบการเชื่อมต่อได้ / เห็นผลลัพธ์ PromQL แรก
-- Speaker note: นี่คือ data source ตัวแรกที่ผู้เรียนจะเชื่อมเอง ให้ช่วยดูว่าทุกคนใช้ URL ถูกเป็น `http://prometheus:9090` และเห็นผลลัพธ์ใน Explore จริง.
+- Expected outcomes: Prometheus added / Connection test passed / First PromQL result visible
+- Speaker note: This is the first data source learners connect themselves. Ensure everyone uses the correct URL `http://prometheus:9090` and actually sees a result in Explore.
 
-### 16. InfluxDB Data Source แบบ Flux
+### 16. InfluxDB Data Source with Flux
 
 - Section: Working with Data Sources
-- InfluxDB 2.x ใช้ URL, Organization, Bucket และ Token
-- ใน lab นี้เลือก query language เป็น Flux
-- เหมาะกับการเปรียบเทียบแนวคิด query คนละแบบกับ PromQL
+- InfluxDB 2.x requires URL, Organization, Default Bucket, and Token
+- In this lab we select Flux as the query language
+- Great for comparing a completely different query paradigm to PromQL
 - Visual: influxdb-flow
-- Speaker note: อธิบายให้ผู้เรียนเห็นว่าต่อให้ data source ต่างชนิดกัน Grafana ก็ยังใช้ pattern การเชื่อมต่อคล้ายเดิม คือเลือกปลายทาง ใส่ credential และทดสอบการเชื่อมต่อ.
+- Speaker note: Explain that even though the data source type is different, Grafana still uses the same connection pattern — pick the target, enter credentials, test the connection.
 
-### 17. สลับไปทำ Exercise 03: InfluxDB + Flux
+### 17. Lab: Exercise 03 — InfluxDB + Flux
 
 - Section: Working with Data Sources
-- เปิดไฟล์ `Exercises/03-influxdb-flux-data-source.md`
-- seed ข้อมูลตัวอย่าง แล้วเพิ่ม InfluxDB Data Source
-- ทดลอง query measurement `lab_metrics` ผ่าน Explore
+- Open `Exercises/03-influxdb-flux-data-source.md`
+- Run the seed script, then add the InfluxDB data source with Flux
+- Query the `lab_metrics` measurement in Explore
 - Exercise file: `Exercises/03-influxdb-flux-data-source.md`
-- Expected outcomes: seed data สำเร็จ / เชื่อม InfluxDB ได้ / อ่าน Flux query ได้เบื้องต้น
-- Speaker note: ให้ผู้เรียนเห็นความต่างของภาษา query แต่ยังอยู่ใน Grafana workflow เดิม ช่วยย้ำว่าเครื่องมือหน้าบ้านคงเดิม แต่แหล่งข้อมูลและภาษาคุยกับมันต่างกัน.
+- Expected outcomes: Data seeded / InfluxDB connected / Basic Flux query readable
+- Speaker note: Help learners see the difference in query language while staying in the same Grafana workflow. The front-end experience is identical; only the language for talking to the backend changes.
 
-### 18. Queries ใน Grafana
+### 18. PromQL: What is it?
+
+- Section: PromQL Basics
+- PromQL is the query language built into Prometheus
+- A functional language for selecting, filtering, and aggregating time-series metrics
+- Used in Grafana Explore, panel editors, and alert rule definitions
+- Visual: promql-intro
+- Speaker note: Make it clear that PromQL is not a SQL dialect — it is built around the idea of time-series data streams. Every expression returns an instant vector, a range vector, or a scalar value.
+
+### 19. PromQL: Basic Metric Selectors
+
+- Section: PromQL Basics
+- `up` — returns 1 when a scrape target is reachable, 0 when it is not
+- `{job="prometheus"}` — label selector that filters results to a specific job
+- `up{job="prometheus", instance="localhost:9090"}` — combine selectors for precision
+- `prometheus_build_info` — returns build metadata for each Prometheus instance
+- Visual: Selector Examples
+- Speaker note: Start with `up` because every Prometheus instance exposes it and learners have already queried it in Exercise 02. Show how adding label selectors narrows the result set — this is the foundation of all more complex queries.
+
+### 20. PromQL: Useful Functions and Aggregations
+
+- Section: PromQL Basics
+- `rate(metric[5m])` — per-second rate of a counter; use for request/error rates
+- `increase(metric[1m])` — total counter increase; useful for alert thresholds
+- `sum by (label) (metric)` — aggregate across instances grouped by a label
+- `avg_over_time(metric[5m])` — average gauge value over a rolling window
+- Visual: Common Functions
+- Speaker note: These four patterns cover the majority of real-world PromQL queries. Key rule: always use `rate` or `increase` for counters — never plot raw counter values. Use `sum by` to collapse multi-instance results into one meaningful number.
+
+### 21. PromQL in Grafana Explore
+
+- Section: PromQL Basics
+- Select Prometheus as the data source in Explore
+- Switch to Code mode to type queries directly
+- Use the time range picker to zoom; use Query inspector to see raw response data
+- Visual: explore-promql
+- Speaker note: Demonstrate switching between Builder and Code mode. Builder mode is great for discovery; Code mode is needed for complex expressions. By the end of this section learners should feel confident reading and editing raw PromQL.
+
+### 22. Queries in Grafana
 
 - Section: Queries and Panels
-- เริ่มทดลอง query ได้จากหน้า Explore
-- เลือก data source ก่อน แล้วค่อยเขียน query ให้ตอบคำถามที่ชัดเจน
-- query เดียวกันสามารถนำไปต่อยอดเป็น panel บน dashboard ได้
+- Start experimenting with queries from the Explore page
+- Choose the data source first, then write a query that answers a specific question
+- The same query can be reused directly as a panel on a dashboard
 - Visual: explore-to-panel
-- Speaker note: สไลด์นี้ช่วยเปลี่ยนมุมคิดจาก “อยากได้กราฟแบบไหน” ไปเป็น “อยากตอบคำถามอะไรจากข้อมูล” เพราะ query ที่ชัดคือฐานของ dashboard ที่ดี.
+- Speaker note: This slide shifts the mindset from "what kind of graph do I want?" to "what question am I trying to answer?" A clear query is the foundation of a good dashboard.
 
-### 19. การออกแบบและสร้าง Panel
+### 23. Designing and Building Panels
 
 - Section: Queries and Panels
-- Time series เหมาะกับแนวโน้มตามเวลา
-- Stat เหมาะกับค่าปัจจุบันที่ต้องอ่านเร็ว
-- ชื่อ panel, legend และ layout ส่งผลต่อความเข้าใจไม่แพ้ query
+- Time series: best for trends and changes over time
+- Stat: best for a current single value that must be read at a glance
+- Panel title, legend, and layout matter as much as the query itself
 - Visual: panel-types
-- Speaker note: ย้ำกับผู้เรียนว่าการเลือก visualization ไม่ใช่แค่เรื่องสวยงาม แต่เป็นการออกแบบคำตอบให้ตรงกับสิ่งที่คนดูต้องตัดสินใจจากข้อมูล.
+- Speaker note: Reinforce that choosing a visualization type is not just about aesthetics — it is designing the answer to match what the viewer needs to decide from the data.
 
-### 20. สลับไปทำ Exercise 04: Queries and Panels
+### 24. Lab: Exercise 04 — Queries and Panels
 
 - Section: Queries and Panels
-- เปิดไฟล์ `Exercises/04-queries-and-panels.md`
-- นำเข้า dashboard skeleton และสร้าง Time series กับ Stat panel
-- ตั้งชื่อ panel และปรับ layout ให้ดูง่าย
+- Open `Exercises/04-queries-and-panels.md`
+- Import the dashboard skeleton and build Time series and Stat panels
+- Use `up{job="prometheus"}` and `prometheus_build_info`; set titles and layout
 - Exercise file: `Exercises/04-queries-and-panels.md`
-- Expected outcomes: สร้าง dashboard แรกได้ / เข้าใจ panel ต่างชนิด / อ่านผลจาก PromQL บน dashboard ได้
-- Speaker note: ช่วงนี้ควรปล่อยเวลาลงมือทำมากขึ้น เพราะผู้เรียนจะเริ่มเห็นภาพว่า query ที่เขียนไว้เปลี่ยนเป็น dashboard ที่ใช้งานได้จริงอย่างไร.
+- Expected outcomes: First dashboard built / Panel type differences understood / PromQL results on dashboard
+- Speaker note: Allow more hands-on time here. Learners will start to see how the queries they wrote become real, usable dashboards.
 
-### 21. ระบบ Alerting ของ Grafana
-
-- Section: Working with Alerting
-- Alerting ใช้ตรวจเงื่อนไขจาก query และประเมินซ้ำตามช่วงเวลา
-- สถานะหลักคือ Normal, Pending และ Firing
-- Grafana-managed Alert rule สร้างได้จาก UI โดยไม่ต้องเขียนระบบเพิ่ม
-- Visual: alert-states
-- Speaker note: ให้ผู้เรียนเข้าใจก่อนว่า alerting คือขั้นต่อจาก dashboard เมื่อเราไม่ได้อยากรอให้คนมาเปิดดูกราฟเอง แต่ต้องการให้ระบบคอยเฝ้าระวังให้.
-
-### 22. การตั้ง Alert Rule และ Notification
-
-- Section: Working with Alerting
-- เริ่มจาก query ที่วัดสิ่งสำคัญจริง
-- กำหนด threshold, evaluation interval และ pending period
-- ใน lab นี้จะโฟกัสที่การเปลี่ยนสถานะของ rule เป็นหลัก
-- Visual: ตัวอย่างแนวคิดของ Rule
-- Speaker note: สไลด์นี้ไม่ต้องลงลึกระบบ notification ภายนอกมาก เพราะเป้าหมายของคอร์สคือให้ผู้เรียนเข้าใจแกนหลักของ rule evaluation ก่อน.
-
-### 23. สลับไปทำ Exercise 06: Alerting Basics
-
-- Section: Working with Alerting
-- เปิดไฟล์ `Exercises/08-alerting-basics.md`
-- สร้าง rule จาก `increase(demo_requests_total[1m])`
-- ยิง traffic แล้วดูสถานะเปลี่ยนจาก Normal ไปเป็น Pending หรือ Firing
-- Exercise file: `Exercises/08-alerting-basics.md`
-- Expected outcomes: สร้าง rule สำเร็จ / trigger alert ได้จริง / เข้าใจ state transition
-- Speaker note: ตรงนี้ผู้เรียนจะเห็นว่า query ที่เคยใช้ดูข้อมูล สามารถกลายเป็นเงื่อนไขแจ้งเตือนได้จริง ซึ่งเป็นจุดเชื่อมสำคัญระหว่าง observability กับ operations.
-
-### 24. Dashboard Variables และ Templating
+### 25. Dashboard Variables and Templating — Concepts
 
 - Section: Advanced Dashboard Features
-- Variables ช่วยลดการ hard-code ค่าใน query
-- สร้าง dropdown เช่น `job` และ `instance` ได้
-- panel หลายตัวใช้ variable เดียวกันเพื่อเปลี่ยนมุมมองพร้อมกัน
+- Variables eliminate hard-coded values in queries
+- Create dropdowns for dimensions like `job`, `service`, or `instance`
+- Multiple panels share the same variable and update simultaneously
 - Visual: variables-flow
-- Speaker note: ให้ชี้ว่า variables ทำให้ dashboard เดียวดูหลาย service ได้ จึงช่วยลดการทำ dashboard ซ้ำจำนวนมากและดูแลง่ายขึ้น.
+- Speaker note: Point out that variables let one dashboard cover many services. This prevents dashboard sprawl and makes long-term maintenance much easier.
 
-### 25. Interactive Dashboards
-
-- Section: Advanced Dashboard Features
-- ผู้ใช้สลับค่าผ่าน dropdown แล้ว panel จะ refresh ตามทันที
-- ค่า variable ถูก sync ไปกับ URL เพื่อแชร์มุมมองเดิมได้
-- เหมาะกับ dashboard ที่ต้องใช้ซ้ำกับหลาย target หรือหลายทีม
-- Visual: Interactive flow
-- Speaker note: สไลด์นี้ช่วยให้ผู้เรียนเห็นประโยชน์เชิงใช้งานจริง ว่าการทำ dashboard แบบ interactive ทำให้ dashboard ชุดเดียวตอบคำถามได้หลายสถานการณ์.
-
-### 26. สลับไปทำ Exercise 05: Dashboard Variables
+### 26. Lab: Exercise 05 — Dashboard Variables with InfluxDB
 
 - Section: Advanced Dashboard Features
-- เปิดไฟล์ `Exercises/05-dashboard-variables.md`
-- สร้าง variable `job` และ `instance`
-- ใช้ variable ใน PromQL เพื่อให้ dashboard โต้ตอบได้
+- Open `Exercises/05-dashboard-variables.md`
+- Seed multi-region InfluxDB data, then create `service` and `region` query variables
+- Build chained variables so `region` filters by the selected `service`
 - Exercise file: `Exercises/05-dashboard-variables.md`
-- Expected outcomes: สร้าง variable ได้ / ทำ dashboard interactive ได้ / เข้าใจ templating เบื้องต้น
-- Speaker note: แม้หัวข้อนี้อยู่ในส่วน advanced แต่ผู้เรียนมักเห็นผลเร็วและสนุก เพราะเปลี่ยนค่า dropdown แล้ว dashboard ตอบสนองทันที.
+- Expected outcomes: Query variables created from Flux / Chained variable filters correctly / Dashboard reacts to dropdowns
+- Speaker note: The chained variable pattern is highly practical — changing `service` immediately narrows the `region` options. The InfluxDB data deliberately places different services in different regions to make the chain meaningful.
 
-### 27. Grafana Plugins คืออะไร
+### 27. Templating: Reusable Dashboards with Prometheus
+
+- Section: Advanced Dashboard Features
+- Use Query, Custom, Interval variable types to build templates
+- Insert `$variable` syntax inside PromQL to make queries fully dynamic
+- Panel Repeat auto-expands one panel definition into N panels based on a variable
+- Visual: Templating Flow
+- Speaker note: Show the contrast between a static dashboard that always shows one service and a templated one that shows any service chosen from a dropdown. The panel repeat feature is particularly impressive in demos.
+
+### 28. Lab: Exercise 06 — Templating
+
+- Section: Advanced Dashboard Features
+- Open `Exercises/06-templating.md`
+- Import `starter.json`, create a `service` Query variable and a custom `interval` variable
+- Use `$service` in PromQL; enable Panel Repeat to expand panels per service
+- Exercise file: `Exercises/06-templating.md`
+- Expected outcomes: Query variable drives panel content / Custom interval variable works / Panel Repeat expands per service
+- Speaker note: The key insight is that the Prometheus data source supports label-based variable queries, so the dropdown values come directly from real metric labels — not hard-coded lists.
+
+### 29. Interactive Dashboards: Dashboard Links and Data Links
+
+- Section: Advanced Dashboard Features
+- Dashboard links: navigate from overview to detail, preserving time range and context
+- Data links: click a row or data point to open a related view with context passed automatically
+- Building a drill-down flow makes dashboards useful for real incident investigation
+- Visual: Drill-Down Flow
+- Speaker note: SRE and on-call engineers need to go quickly from "something is wrong" to "exactly what and where." This slide sets up the mental model before learners build the flow themselves.
+
+### 30. Lab: Exercise 07 — Interactive Dashboards
+
+- Section: Advanced Dashboard Features
+- Open `Exercises/07-interactive-dashboards.md`
+- Create `Ops Overview` with a Table panel using `sum by (job, instance) (up)`
+- Create `Target Detail`; add a Dashboard link and a Data link between the two dashboards
+- Exercise file: `Exercises/07-interactive-dashboards.md`
+- Expected outcomes: Dashboard link navigates and preserves time range / Data link in Table opens detail view / Variables carry context
+- Speaker note: The payoff of this exercise is clicking a row in the overview table and landing directly on the detail dashboard with the correct target pre-selected.
+
+### 31. Grafana Alerting System
+
+- Section: Working with Alerting
+- Alerting evaluates conditions from a query on a repeating schedule
+- Main states: Normal, Pending, and Firing
+- Grafana-managed Alert rules are created from the UI — no extra infrastructure required
+- Visual: alert-states
+- Speaker note: Help learners understand that alerting is the natural next step beyond dashboards — instead of waiting for someone to open a graph, the system watches automatically.
+
+### 32. Setting Up Alert Rules and Notifications
+
+- Section: Working with Alerting
+- Start from a query that measures something operationally meaningful
+- Set a threshold, evaluation interval, and pending period
+- In this lab the focus is on observing state transitions, not external channels
+- Visual: Alert Rule Concept
+- Speaker note: No need to configure external notification channels in depth. The objective is for learners to understand the core rule evaluation cycle first.
+
+### 33. Lab: Exercise 08 — Alerting Basics
+
+- Section: Working with Alerting
+- Open `Exercises/08-alerting-basics.md`
+- Build a rule from `increase(demo_requests_total[1m])` with threshold `> 10`
+- Run `./generate-traffic.sh`, then watch: Normal → Pending → Firing
+- Exercise file: `Exercises/08-alerting-basics.md`
+- Expected outcomes: Alert rule created / Traffic script triggers condition / State transition observed in UI
+- Speaker note: Learners will see that a PromQL expression they already know becomes an alert condition with just a threshold. This is the key bridge between observability and operations.
+
+### 34. What are Grafana Plugins?
 
 - Section: Grafana Plugins
-- Plugin ใช้เพิ่ม Data Source, Panel หรือ App ให้ Grafana
-- ช่วยขยายความสามารถให้ตรงกับโจทย์เฉพาะทาง
-- เป็นจุดที่นักพัฒนาสามารถต่อยอด Grafana ได้มากที่สุด
+- Plugins add Data Sources, Panels, or complete Apps to Grafana
+- They extend capabilities to match specialized or internal requirements
+- For developers, plugins are the primary way to customize the platform
 - Visual: plugin-types
-- Speaker note: ใช้สไลด์นี้เปลี่ยนบทบาทของผู้เรียนจากผู้ใช้ Grafana ไปเป็นคนที่เริ่มขยายความสามารถของ Grafana เองได้.
+- Speaker note: Use this slide to shift learners from Grafana users to Grafana extenders. They are now looking at the platform from a developer point of view.
 
-### 28. การติดตั้ง ใช้งาน และตั้งค่า Plugin
+### 35. Installing and Configuring Plugins
 
 - Section: Grafana Plugins
-- เลือก plugin จาก catalog หรือ build ใช้เองในองค์กร
-- หลังติดตั้งควรตรวจสอบสิทธิ์ การตั้งค่า และ compatibility
-- บาง plugin ใช้เพิ่ม data source และบาง plugin ใช้เพิ่ม panel ใหม่
+- Choose from the public plugin catalog or build your own for internal use
+- After installation, verify permissions, settings, and version compatibility
+- Some plugins add data source types; others add entirely new panel visualizations
 - Visual: plugin-lifecycle
-- Speaker note: อธิบายให้ผู้เรียนเห็นว่าก่อนจะเขียน plugin เอง เราควรรู้ก่อนว่า plugin ถูกใช้และถูกตั้งค่าใน Grafana อย่างไร เพราะเป็นประสบการณ์ที่ผู้ใช้ปลายทางจะเจอจริง.
+- Speaker note: Explain that before writing a plugin, learners should understand how plugins are installed and configured from the end-user perspective, since that is the experience their users will have.
 
-### 29. การพัฒนา Panel Plugin แบบพื้นฐาน
+### 36. Developing a Basic Panel Plugin
 
 - Section: Grafana Plugins
-- ใช้ `@grafana/create-plugin` scaffold โปรเจกต์เริ่มต้น
-- พัฒนาด้วย TypeScript/React ตามแนวทางของ Grafana
-- รัน watcher และ Grafana dev stack เพื่อทดสอบได้ทันที
+- Scaffold a new project with `@grafana/create-plugin`
+- Develop using TypeScript and React following Grafana official conventions
+- Run the file watcher and the Grafana dev stack to see changes in real time
 - Visual: plugin-workflow
-- Speaker note: สไลด์นี้ควรสร้างความมั่นใจให้ผู้เรียนว่า plugin development มี workflow ที่ชัดเจนและเริ่มต้นได้เร็ว ไม่จำเป็นต้องเริ่มจากศูนย์.
+- Speaker note: Build confidence by showing that plugin development has a well-tooled, clear workflow. The generator provides the correct project structure, Docker Compose setup, and TypeScript config from the start.
 
-### 30. สลับไปทำ Exercise 07: Panel Plugin Basics
+### 37. Lab: Exercise 09 — Panel Plugin Basics
 
 - Section: Grafana Plugins
-- เปิดไฟล์ `Exercises/09-panel-plugin-basics.md`
-- scaffold panel plugin ใหม่ แล้วรัน workflow สำหรับพัฒนา
-- แก้ไข `SimplePanel.tsx` และ refresh ดูผลใน Grafana
+- Open `Exercises/09-panel-plugin-basics.md`
+- Run `npx @grafana/create-plugin@latest` inside `labfiles/09-panel-plugin-basics/workspace`
+- Run `npm install && npm run dev`; edit `SimplePanel.tsx` to confirm live reload
 - Exercise file: `Exercises/09-panel-plugin-basics.md`
-- Expected outcomes: scaffold plugin สำเร็จ / Grafana โหลด plugin ได้ / เห็นผลจากการแก้โค้ดจริง
-- Speaker note: นี่คือช่วงที่ทำให้ผู้เรียนเห็นความเป็น developer ของคอร์สนี้ชัดที่สุด ควรช่วยให้ทุกคนไปถึงจุดที่ plugin แสดงผลใน Grafana ได้อย่างน้อยหนึ่งครั้ง.
+- Expected outcomes: Plugin scaffolded successfully / Grafana detects and loads the plugin / Code edit reflected in rendered panel
+- Speaker note: This exercise makes the developer identity of the course most visible. Help every learner reach the point where their own plugin renders in Grafana at least once.
 
-### 31. สรุปภาพรวมของคอร์ส
+### 38. Course Summary
 
 - Section: Conclusion
-- เปิด Grafana ได้ใน Codespaces ด้วย Docker Compose
-- เชื่อมต่อ Prometheus และ InfluxDB ได้จริง
-- สร้าง dashboard, variables, alert และเริ่มพัฒนา plugin ได้
+- Launched Grafana in Codespaces using Docker Compose
+- Connected Prometheus and InfluxDB; mastered PromQL essentials
+- Built dashboards, variables, templated views, alert rules, and a custom panel plugin
 - Visual: course-roadmap
-- Speaker note: ใช้สไลด์นี้ทบทวนภาพรวมทั้งหมดอย่างกระชับ เพื่อให้ผู้เรียนเชื่อมโยงว่าทุกหัวข้อที่ผ่านมาเป็นเส้นทางเดียวกันจากการเปิดระบบไปจนถึงการต่อยอดเอง.
+- Speaker note: Use this slide for a crisp recap. Every topic covered is part of a single path from system setup all the way to self-directed platform extension.
 
-### 32. Q&A และ Next Steps
+### 39. Q&A and Next Steps
 
 - Section: Conclusion
-- ทบทวนคำถามหรือจุดติดขัดจากแต่ละ exercise
-- ลองทำ exercise ซ้ำตามลำดับเพื่อเสริมความเข้าใจ
-- ต่อยอด dashboard และ plugin จากโจทย์ของทีมตัวเอง
-- Visual: หลังจบคอร์ส
-- Speaker note: ปิดท้ายแบบเปิดพื้นที่ให้ถามต่อ และชวนให้ผู้เรียนกลับไปลองปรับใช้กับงานจริง เช่น เปลี่ยน data source, เพิ่ม panel หรือทดลองแก้ plugin ต่อเอง.
+- Review questions and blockers from each exercise
+- Revisit the exercises in order to reinforce understanding
+- Extend your dashboards and plugins using your team real data and requirements
+- Visual: After the Course
+- Speaker note: Close with an open invitation to ask questions, and encourage learners to take what they built today back to real work — swap in different data sources, add new panels, or experiment with plugin customization.
 

@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะโฟกัสเรื่อง Templating โดยสร้าง Variables หลายรูปแบบใน Grafana แล้วนำไปใช้ใน query ของ Panel เพื่อให้ Dashboard เดียวสามารถเลือกดูข้อมูลตาม service, instance และช่วงเวลาได้ทันที เป้าหมายคือทำให้ dashboard ยืดหยุ่นและนำกลับไปใช้ซ้ำได้ง่ายในงานจริง
 
-This exercise takes approximately **45** minutes.
 
 > **Note**: ขั้นตอนใน lab นี้อ้างอิง Grafana 13.x โดยชื่อปุ่มหรือเมนูอาจต่างเล็กน้อยหากใช้เวอร์ชันอื่น
 
@@ -80,7 +79,7 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Import**
 
-> 📸 **Screenshot**: หน้า Import dashboard ที่เลือกไฟล์ `starter.json` และตั้งชื่อ `Service Template Dashboard`
+
 
 ## สร้าง Variables สำหรับ Templating
 
@@ -128,7 +127,6 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Apply** และตรวจสอบว่า dropdown ทั้ง `service`, `instance`, `window` แสดงที่ด้านบน dashboard
 
-> 📸 **Screenshot**: หน้า dashboard ในโหมด **Edit** ที่เปิด **Dashboard options** จาก right-toolbar และ section **Variables** มี `service`, `instance`, และ `window` ครบแล้ว
 
 ## ใช้ Variables ใน Panel query และเปิด panel repeat
 
@@ -150,7 +148,6 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Run query** แล้วทดลองเปลี่ยนค่า dropdown ด้านบนเพื่อดูว่า panel เปลี่ยนผลลัพธ์ตาม variable
 
-> 📸 **Screenshot**: หน้า panel editor ที่ใช้ query พร้อมตัวแปร `$service`, `$instance`, `$window` และตั้งค่า repeat ตาม `instance`
 
 ## ตรวจสอบพฤติกรรม template ใน URL
 
@@ -162,7 +159,7 @@ This exercise takes approximately **45** minutes.
 
 1. บันทึก dashboard โดยคลิก **Save dashboard**
 
-> 📸 **Screenshot**: Dashboard หลังบันทึก โดยเห็น dropdown และ URL ที่มี `var-` parameters
+
 
 ## Result
 

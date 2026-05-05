@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะออกแบบ Interactive dashboard โดยเริ่มจากหน้า Overview แล้วเชื่อมไปหน้า Detail ผ่าน Dashboard links และ Data links เพื่อให้ผู้ใช้งานคลิกสำรวจปัญหาจากภาพรวมลงสู่รายละเอียดได้อย่างรวดเร็ว แนวทางนี้ช่วยให้ dashboard ใช้งานเชิงวิเคราะห์ได้จริงมากกว่าการดูกราฟแบบ static
 
-This exercise takes approximately **45** minutes.
 
 > **Note**: Lab นี้ใช้เมนูและชื่อ option ตาม Grafana 13.x
 
@@ -56,7 +55,6 @@ This exercise takes approximately **45** minutes.
 
 1. login ด้วย `admin` / `grafanaadmin`
 
-> 📸 **Screenshot**: หน้า Home ของ Grafana ใน Codespaces หลัง login สำเร็จ
 
 ## เพิ่ม Prometheus Data source
 
@@ -66,7 +64,6 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Save & test**
 
-> 📸 **Screenshot**: หน้า Prometheus Data source ที่เชื่อมต่อสำเร็จ
 
 ## สร้าง Overview dashboard
 
@@ -88,7 +85,7 @@ This exercise takes approximately **45** minutes.
 
 1. บันทึก dashboard ชื่อ `Ops Overview`
 
-> 📸 **Screenshot**: หน้า `Ops Overview` ที่มี Table panel แสดงคอลัมน์ `job`, `instance`, และค่า `up`
+
 
 ## สร้าง Detail dashboard พร้อม Variables
 
@@ -170,7 +167,7 @@ This exercise takes approximately **45** minutes.
 
 1. ตรวจสอบว่า dashboard `Target Detail` รับค่า `job` และ `instance` จากแถวที่คลิก
 
-> 📸 **Screenshot**: การคลิก Data link จาก Table แล้วเปิดหน้า `Target Detail` พร้อมค่าตัวแปรที่ถูกส่งมา
+
 
 ## Result
 

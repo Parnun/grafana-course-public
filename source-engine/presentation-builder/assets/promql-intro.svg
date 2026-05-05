@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <rect width="920" height="520" rx="24" fill="#F7FAFF"/>
+  
+      
+    <rect x="70" y="190" width="240" height="110" rx="18" fill="#EAF2FF" stroke="#2F6FEB" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="190" y="243.32">Prometheus</tspan><tspan x="190" y="275.52">Metrics Store</tspan></text>
+  
+      
+    <rect x="370" y="190" width="180" height="110" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#17324D"><tspan x="460" y="243.32">PromQL</tspan><tspan x="460" y="275.52">Expression</tspan></text>
+  
+      
+    <rect x="650" y="110" width="180" height="80" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="740" y="157">Explore</tspan></text>
+  
+      
+    <rect x="650" y="220" width="180" height="80" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="740" y="267">Panel</tspan></text>
+  
+      
+    <rect x="650" y="330" width="180" height="80" rx="18" fill="#FFFFFF" stroke="#91B4FF" stroke-width="2"/>
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#17324D"><tspan x="740" y="377">Alert Rule</tspan></text>
+  
+      
+    <defs>
+      <marker id="arrow-310-245-370-245" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="310" y1="245" x2="370" y2="245" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-310-245-370-245)"/>
+  
+      
+    <defs>
+      <marker id="arrow-550-230-650-150" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="550" y1="230" x2="650" y2="150" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-550-230-650-150)"/>
+  
+      
+    <defs>
+      <marker id="arrow-550-245-650-260" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="550" y1="245" x2="650" y2="260" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-550-245-650-260)"/>
+  
+      
+    <defs>
+      <marker id="arrow-550-260-650-370" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#2F6FEB"/>
+      </marker>
+    </defs>
+    <line x1="550" y1="260" x2="650" y2="370" stroke="#2F6FEB" stroke-width="4" marker-end="url(#arrow-550-260-650-370)"/>
+  
+    
+</svg>

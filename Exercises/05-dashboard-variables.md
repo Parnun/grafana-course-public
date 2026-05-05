@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะใช้ Variables เพื่อเปลี่ยน dashboard ธรรมดาให้กลายเป็น dashboard แบบ interactive ที่สลับมุมมองตาม `service` และ `region` ได้จาก dropdown ด้านบนของหน้า โดยใช้ metrics จาก InfluxDB 2.x ที่มีข้อมูล multi-region สำหรับการทดลอง
 
-This exercise takes approximately **45** minutes.
 
 > **Important**: Exercise นี้ใช้ InfluxDB 2.x และ Flux query language Variables จะดึงค่า tag จาก bucket โดยตรงผ่าน Flux query ทำให้ dropdown เปลี่ยนตาม tag ที่มีอยู่ใน data จริง
 

@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะเริ่มต้นสร้าง Grafana Panel plugin จาก tooling ทางการของ Grafana โดยใช้ `@grafana/create-plugin` ภายใน GitHub Codespaces จากนั้นจะเปิด Grafana ที่มาพร้อมกับ plugin scaffold และแก้ไข Panel ตัวอย่างเพื่อยืนยันว่า development workflow ทำงานจริง
 
-This exercise takes approximately **60** minutes.
 
 > **Important**: Exercise นี้ใช้ Node.js LTS และ Docker Compose ตามแนวทางของ Grafana plugin tools หากใน Codespace ของเรายังไม่มี Node.js เวอร์ชันที่เหมาะสม ให้ตรวจสอบไฟล์ `.nvmrc` ในโฟลเดอร์ lab นี้ก่อนเริ่ม
 
@@ -62,7 +61,6 @@ This exercise takes approximately **60** minutes.
    - Plugin name: `codespace-panel`
    - Plugin type: `panel`
 
-> 📸 **Screenshot**: Terminal ใน GitHub Codespaces ขณะตอบ prompt ของ `@grafana/create-plugin`
 
 ## รัน plugin ในโหมดพัฒนา
 
@@ -100,7 +98,6 @@ This exercise takes approximately **60** minutes.
 
 1. หากต้องการยืนยันเพิ่ม ให้ดู log ใน Terminal ที่รัน `docker compose up` และสังเกตข้อความลักษณะ `Plugin registered`
 
-> 📸 **Screenshot**: หน้า **Administration** > **Plugins** ที่แสดง plugin ใหม่จาก scaffold
 
 ## แก้ไข panel ตัวอย่าง
 
@@ -122,7 +119,6 @@ This exercise takes approximately **60** minutes.
 
 1. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
 
-> 📸 **Screenshot**: หน้า panel editor ที่เลือก `TestData DB` และใช้ panel plugin ที่ผู้เรียนสร้างขึ้น
 
 ## Result
 
