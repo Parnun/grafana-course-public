@@ -12,9 +12,7 @@ lab:
 
 ใน exercise นี้ เราจะเตรียมสภาพแวดล้อม Grafana สำหรับ lab ทั้งชุดโดยใช้ Docker Compose ภายใน GitHub Codespaces และตรวจสอบว่า browser preview, port forwarding และ persistent storage ทำงานครบตามที่คาดไว้
 
-This exercise takes approximately **30** minutes.
 
-> **Note**: exercise นี้ตั้งใจให้ทำใน GitHub Codespaces ดังนั้นคำอธิบายเรื่อง port `3000` และ browser preview จะอ้างอิงพฤติกรรมของ Codespaces โดยตรง
 
 ## Learning Objectives
 
@@ -56,7 +54,6 @@ This exercise takes approximately **30** minutes.
 
 1. ตรวจสอบค่าผู้ใช้และรหัสผ่านในไฟล์ `.env`
 
-> 📸 **Screenshot**: หน้าต่าง VS Code ใน GitHub Codespaces ที่เปิดโฟลเดอร์ `labfiles/01-setup-grafana-codespaces` พร้อมไฟล์ `docker-compose.yml` และ `.env`
 
 ## เริ่มต้น Grafana
 
@@ -76,7 +73,7 @@ This exercise takes approximately **30** minutes.
 
 1. หากไม่มี notification ให้เปิดแท็บ **Ports** ใน VS Code และตรวจสอบว่า port `3000` ถูก forward แล้ว
 
-> 📸 **Screenshot**: แท็บ **Ports** ใน GitHub Codespaces ที่แสดง port `3000` สำหรับ Grafana
+
 
 ## เข้าสู่ระบบ Grafana
 
@@ -89,9 +86,8 @@ This exercise takes approximately **30** minutes.
 
 1. หลังจากเข้าสู่ระบบสำเร็จ ให้สังเกตเมนูหลักทางซ้าย เช่น **Dashboards**, **Connections**, และ **Alerts & IRM**
 
-1. อธิบายกับผู้เรียนว่าใน lab นี้ Grafana รันอยู่ใน `Container`, ถูกเข้าถึงผ่าน forwarded port ของ GitHub Codespaces และเก็บข้อมูลไว้ใน Docker volume แยกต่างหาก
+2. lab นี้ Grafana รันอยู่ใน `Container`, ถูกเข้าถึงผ่าน forwarded port ของ GitHub Codespaces และเก็บข้อมูลไว้ใน Docker volume แยกต่างหาก
 
-> 📸 **Screenshot**: หน้า Home ของ Grafana หลัง login สำเร็จใน browser preview ของ Codespaces
 
 ## ตรวจสอบ persistent storage
 
@@ -101,11 +97,11 @@ This exercise takes approximately **30** minutes.
    docker volume ls | grep grafana
    ```
 
-1. อธิบายว่า volume นี้ช่วยเก็บข้อมูลจำพวก configuration, user, dashboard, และ metadata ของ Grafana
+1. volume นี้ช่วยเก็บข้อมูลจำพวก configuration, user, dashboard, และ metadata ของ Grafana
 
 1. หากจะทำ exercise ถัดไปทันที เราอาจปล่อย stack นี้ไว้ชั่วคราวได้ แต่ถ้าต้องการ reset environment ให้ทำตามขั้นตอนในหัวข้อท้าย exercise นี้
 
-## Result
+## ผลลัพธ์
 
 เราควรมี Grafana ที่เปิดใช้งานได้ใน GitHub Codespaces, login ได้ผ่าน port `3000`, และมี Docker volume สำหรับเก็บข้อมูลเรียบร้อยแล้ว
 
@@ -123,4 +119,4 @@ This exercise takes approximately **30** minutes.
    docker compose down
    ```
 
-1. อธิบายว่าคำสั่งนี้จะหยุด container และ network ของ lab นี้ แต่จะยังเก็บ Docker volume ไว้ ทำให้เริ่มใหม่ได้ภายหลังโดยไม่ต้องเตรียมข้อมูลใหม่ทั้งหมด
+2. คำสั่งนี้จะหยุด container และ network ของ lab นี้ แต่จะยังเก็บ Docker volume ไว้ ทำให้เริ่มใหม่ได้ภายหลังโดยไม่ต้องเตรียมข้อมูลใหม่ทั้งหมด

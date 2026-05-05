@@ -11,8 +11,10 @@
 3. `../Exercises/03-influxdb-flux-data-source.md`
 4. `../Exercises/04-queries-and-panels.md`
 5. `../Exercises/05-dashboard-variables.md`
-6. `../Exercises/06-alerting-basics.md`
-7. `../Exercises/07-panel-plugin-basics.md`
+6. `../Exercises/06-templating.md`
+7. `../Exercises/07-interactive-dashboards.md`
+8. `../Exercises/08-alerting-basics.md`
+9. `../Exercises/09-panel-plugin-basics.md`
 
 ข้อกำหนดร่วม:
 

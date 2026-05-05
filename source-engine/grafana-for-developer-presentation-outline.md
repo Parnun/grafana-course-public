@@ -213,10 +213,10 @@
 ### 23. สลับไปทำ Exercise 06: Alerting Basics
 
 - Section: Working with Alerting
-- เปิดไฟล์ `Exercises/06-alerting-basics.md`
+- เปิดไฟล์ `Exercises/08-alerting-basics.md`
 - สร้าง rule จาก `increase(demo_requests_total[1m])`
 - ยิง traffic แล้วดูสถานะเปลี่ยนจาก Normal ไปเป็น Pending หรือ Firing
-- Exercise file: `Exercises/06-alerting-basics.md`
+- Exercise file: `Exercises/08-alerting-basics.md`
 - Expected outcomes: สร้าง rule สำเร็จ / trigger alert ได้จริง / เข้าใจ state transition
 - Speaker note: ตรงนี้ผู้เรียนจะเห็นว่า query ที่เคยใช้ดูข้อมูล สามารถกลายเป็นเงื่อนไขแจ้งเตือนได้จริง ซึ่งเป็นจุดเชื่อมสำคัญระหว่าง observability กับ operations.
 
@@ -278,10 +278,10 @@
 ### 30. สลับไปทำ Exercise 07: Panel Plugin Basics
 
 - Section: Grafana Plugins
-- เปิดไฟล์ `Exercises/07-panel-plugin-basics.md`
+- เปิดไฟล์ `Exercises/09-panel-plugin-basics.md`
 - scaffold panel plugin ใหม่ แล้วรัน workflow สำหรับพัฒนา
 - แก้ไข `SimplePanel.tsx` และ refresh ดูผลใน Grafana
-- Exercise file: `Exercises/07-panel-plugin-basics.md`
+- Exercise file: `Exercises/09-panel-plugin-basics.md`
 - Expected outcomes: scaffold plugin สำเร็จ / Grafana โหลด plugin ได้ / เห็นผลจากการแก้โค้ดจริง
 - Speaker note: นี่คือช่วงที่ทำให้ผู้เรียนเห็นความเป็น developer ของคอร์สนี้ชัดที่สุด ควรช่วยให้ทุกคนไปถึงจุดที่ plugin แสดงผลใน Grafana ได้อย่างน้อยหนึ่งครั้ง.
 

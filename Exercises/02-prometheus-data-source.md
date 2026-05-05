@@ -12,7 +12,6 @@ lab:
 
 ใน exercise นี้ เราจะเปิด Grafana พร้อม Prometheus ภายใน GitHub Codespaces แล้วเพิ่ม Prometheus เป็น Data source ผ่าน Grafana UI จากนั้นจะทดลอง query metrics ชุดแรกด้วย PromQL เพื่อให้เห็นเส้นทางข้อมูลตั้งแต่ Prometheus ไปจนถึง Grafana Explore
 
-This exercise takes approximately **40** minutes.
 
 > **Important**: เมื่อ Grafana และ Prometheus รันอยู่คนละ Container คำว่า `localhost` ภายใน Grafana จะไม่ชี้ไปที่ Prometheus ดังนั้นใน exercise นี้ต้องใช้ URL เป็น `http://prometheus:9090`
 
@@ -59,7 +58,7 @@ This exercise takes approximately **40** minutes.
 
 1. เปิด Grafana ผ่าน forwarded port `3000` ของ GitHub Codespaces แล้ว login ด้วย `admin` / `grafanaadmin`
 
-> 📸 **Screenshot**: หน้า Grafana login หรือ Home page หลังจาก stack ของ Prometheus เริ่มทำงานแล้ว
+
 
 ## เพิ่ม Prometheus Data source
 
@@ -124,15 +123,14 @@ This exercise takes approximately **40** minutes.
 
    ในช่วงที่เพิ่งเริ่ม stack ใหม่ ๆ ค่า rate อาจเป็น `0` หรือมีเพียงไม่กี่ series เพราะยังมี request เข้า Prometheus ไม่มาก
 
-> 📸 **Screenshot**: หน้า **Explore** ที่แสดงผลลัพธ์จาก query `up` หรือ `prometheus_build_info`
 
 ## อธิบายสิ่งที่เกิดขึ้น
 
-1. เปิดไฟล์ `prometheus.yml` ในโฟลเดอร์ lab แล้วอธิบายว่า Prometheus scrape ตัวเองผ่าน target `localhost:9090`
+1. เปิดไฟล์ `prometheus.yml` ในโฟลเดอร์ lab แล้ว Prometheus scrape ตัวเองผ่าน target `localhost:9090`
 
-1. อธิบายว่าฝั่ง Grafana ใช้ชื่อ service `prometheus` เพราะทั้งสอง Container อยู่ใน Docker Compose network เดียวกัน
+2. ฝั่ง Grafana ใช้ชื่อ service `prometheus` เพราะทั้งสอง Container อยู่ใน Docker Compose network เดียวกัน
 
-1. ย้ำว่าจุดสำคัญของ exercise นี้คือแยกความเข้าใจระหว่าง `localhost` ของ host กับชื่อ service ภายใน network ของ Compose
+3. ย้ำว่าจุดสำคัญของ exercise นี้คือแยกความเข้าใจระหว่าง `localhost` ของ host กับชื่อ service ภายใน network ของ Compose
 
 ## Result
 

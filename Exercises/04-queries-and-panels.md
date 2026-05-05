@@ -61,7 +61,7 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Import**
 
-> 📸 **Screenshot**: หน้า Import dashboard ใน Grafana พร้อมไฟล์ `starter.json` ก่อนคลิก **Import**
+
 
 ## สร้าง Time series panel
 
@@ -122,7 +122,7 @@ This exercise takes approximately **45** minutes.
 
 การเลือก panel ให้เหมาะกับคำถามสำคัญพอ ๆ กับการเขียน query ให้ถูกต้อง
 
-## Result
+## ผลลัพธ์
 
 เราควรมี dashboard แรกที่ประกอบด้วยอย่างน้อยหนึ่ง Time series panel และหนึ่ง Stat panel ซึ่งดึงข้อมูลจาก Prometheus ได้จริง
 

@@ -1,4 +1,4 @@
-# 06 Alerting Basics
+# 08 Alerting Basics
 
 Lab นี้มี service ตัวอย่างสำหรับสร้าง metric `demo_requests_total` เพื่อใช้ทดสอบ Grafana Alerting
 

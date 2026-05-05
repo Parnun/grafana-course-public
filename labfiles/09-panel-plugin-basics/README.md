@@ -1,4 +1,4 @@
-# 07 Panel Plugin Basics
+# 09 Panel Plugin Basics
 
 Lab นี้เตรียมแนวทางสำหรับใช้ `@grafana/create-plugin` ใน GitHub Codespaces
 

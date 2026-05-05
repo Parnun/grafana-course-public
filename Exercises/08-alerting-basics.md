@@ -40,7 +40,7 @@ This exercise takes approximately **45** minutes.
 1. เปิด Terminal แล้วไปที่โฟลเดอร์ lab นี้
 
    ```bash
-   cd labfiles/06-alerting-basics
+   cd labfiles/08-alerting-basics
    ```
 
 1. รัน stack ทั้งหมด
@@ -120,7 +120,7 @@ This exercise takes approximately **45** minutes.
 1. กลับมาที่โฟลเดอร์ของ lab นี้
 
    ```bash
-   cd labfiles/06-alerting-basics
+   cd labfiles/08-alerting-basics
    ```
 
 1. หยุด stack ของ Grafana, Prometheus และ service ตัวอย่าง
@@ -129,4 +129,4 @@ This exercise takes approximately **45** minutes.
    docker compose down
    ```
 
-1. อธิบายว่าการ cleanup นี้ช่วยหยุด alert evaluation และคืน port ที่ใช้ใน exercise นี้ก่อนเริ่ม lab ถัดไป
+1. การ cleanup นี้ช่วยหยุด alert evaluation และคืน port ที่ใช้ใน exercise นี้ก่อนเริ่ม lab ถัดไป

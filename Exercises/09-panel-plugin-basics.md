@@ -40,7 +40,7 @@ This exercise takes approximately **60** minutes.
 1. เปิด Terminal แล้วไปที่โฟลเดอร์ lab นี้
 
    ```bash
-   cd labfiles/07-panel-plugin-basics
+   cd labfiles/09-panel-plugin-basics
    ```
 
 1. สร้างโฟลเดอร์ย่อยสำหรับ plugin work
@@ -137,7 +137,7 @@ This exercise takes approximately **60** minutes.
 1. กลับมาที่โฟลเดอร์ plugin ที่ scaffold ขึ้นมา
 
    ```bash
-   cd labfiles/07-panel-plugin-basics/workspace/student-codespace-panel
+   cd labfiles/09-panel-plugin-basics/workspace/student-codespace-panel
    ```
 
 1. ล้าง container และ network ของ plugin dev stack

@@ -77,7 +77,6 @@ This exercise takes approximately **45** minutes.
 
 1. ตรวจสอบว่า script รายงานข้อความว่าการเขียนข้อมูลเสร็จสมบูรณ์
 
- > 📸 **Screenshot**: Terminal หลังรัน `docker compose up -d` และ script seed สำเร็จ (`./scripts/seed-influx.sh` หรือ `scripts\\seed-influx.cmd`)
 
 ## เพิ่ม InfluxDB Data source
 
@@ -106,7 +105,6 @@ This exercise takes approximately **45** minutes.
 
 1. คลิก **Save & test** และยืนยันว่าผลลัพธ์สำเร็จ
 
-> 📸 **Screenshot**: หน้า configuration ของ InfluxDB Data source แบบ Flux พร้อมค่าที่กรอกครบถ้วนและผลลัพธ์หลังคลิก **Save & test**
 
 ## ทดลอง query ด้วย Flux
 
@@ -129,7 +127,7 @@ This exercise takes approximately **45** minutes.
 
 1. อธิบายกับผู้เรียนว่า exercise นี้ใช้ data ชุดเดียวกันแต่เลือก field ต่างกันเพื่อแสดงรูปแบบการ query ใน Flux
 
-> 📸 **Screenshot**: หน้า **Explore** ที่แสดงผลจาก Flux query กับ measurement `lab_metrics`
+
 
 ## ตรวจสอบโครงสร้างข้อมูลที่ seed ไว้
 
@@ -137,7 +135,7 @@ This exercise takes approximately **45** minutes.
 
 1. สังเกตว่าข้อมูลถูกเขียนเข้า measurement `lab_metrics` พร้อม tags เช่น `service` และ `region`
 
-1. อธิบายว่าข้อมูลลักษณะนี้เหมาะกับการสร้าง Dashboard และ filter ผ่าน variable ใน exercise ถัดไป
+1. ข้อมูลลักษณะนี้เหมาะกับการสร้าง Dashboard และ filter ผ่าน variable ใน exercise ถัดไป
 
 ## Result
 
@@ -157,4 +155,4 @@ This exercise takes approximately **45** minutes.
    docker compose down
    ```
 
-1. อธิบายว่าการหยุด stack ตอนนี้จะช่วยคืน port `3000` และ `8086` ให้พร้อมสำหรับ exercise ถัดไป โดยข้อมูลใน volume ยังไม่ถูกลบทิ้ง
+1. การหยุด stack ตอนนี้จะช่วยคืน port `3000` และ `8086` ให้พร้อมสำหรับ exercise ถัดไป โดยข้อมูลใน volume ยังไม่ถูกลบทิ้ง

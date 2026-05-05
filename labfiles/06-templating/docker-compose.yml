@@ -1,0 +1,25 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:13.0.1
+    container_name: grafana-lab-templating
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: grafanaadmin
+      GF_METRICS_ENABLED: "true"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_templating_data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:v3.3.1
+    container_name: prometheus-templating-lab
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+volumes:
+  grafana_templating_data: {}
