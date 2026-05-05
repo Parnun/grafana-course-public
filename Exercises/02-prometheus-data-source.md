@@ -10,7 +10,7 @@ lab:
 
 # เชื่อมต่อ Prometheus Data source และสำรวจ metrics แรกใน Grafana
 
-ใน exercise นี้ คุณจะเปิด Grafana พร้อม Prometheus ภายใน GitHub Codespaces แล้วเพิ่ม Prometheus เป็น Data source ผ่าน Grafana UI จากนั้นจะทดลอง query metrics ชุดแรกด้วย PromQL เพื่อให้เห็นเส้นทางข้อมูลตั้งแต่ Prometheus ไปจนถึง Grafana Explore
+ใน exercise นี้ เราจะเปิด Grafana พร้อม Prometheus ภายใน GitHub Codespaces แล้วเพิ่ม Prometheus เป็น Data source ผ่าน Grafana UI จากนั้นจะทดลอง query metrics ชุดแรกด้วย PromQL เพื่อให้เห็นเส้นทางข้อมูลตั้งแต่ Prometheus ไปจนถึง Grafana Explore
 
 This exercise takes approximately **40** minutes.
 
@@ -31,7 +31,7 @@ This exercise takes approximately **40** minutes.
 
 ## Scenario
 
-ทีมของคุณมี Prometheus อยู่แล้วและต้องการให้นักพัฒนาสามารถสำรวจ metrics ด้วย Grafana ได้โดยไม่ต้องพึ่ง infrastructure ภายนอก เพื่อให้ทุกคนเห็นภาพเหมือนกัน คุณจะใช้ Prometheus แบบ self-contained ภายใน GitHub Codespaces และเชื่อมต่อเข้ากับ Grafana โดยตรง
+ทีมของเรามี Prometheus อยู่แล้วและต้องการให้นักพัฒนาสามารถสำรวจ metrics ด้วย Grafana ได้โดยไม่ต้องพึ่ง infrastructure ภายนอก เพื่อให้ทุกคนเห็นภาพเหมือนกัน เราจะใช้ Prometheus แบบ self-contained ภายใน GitHub Codespaces และเชื่อมต่อเข้ากับ Grafana โดยตรง
 
 เป้าหมายคือสร้าง Data source ที่ใช้งานได้จริง และตรวจสอบว่า query จาก Grafana ไปยัง Prometheus คืนค่ากลับมาได้สำเร็จ
 
@@ -136,7 +136,7 @@ This exercise takes approximately **40** minutes.
 
 ## Result
 
-คุณควรมี Prometheus Data source ที่ใช้งานได้ใน Grafana และสามารถ query metrics แรกผ่านหน้า **Explore** ได้สำเร็จ
+เราควรมี Prometheus Data source ที่ใช้งานได้ใน Grafana และสามารถ query metrics แรกผ่านหน้า **Explore** ได้สำเร็จ
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 
@@ -152,4 +152,4 @@ This exercise takes approximately **40** minutes.
    docker compose down
    ```
 
-1. ยืนยันว่าคุณไม่เหลือ container ที่ใช้ port `3000` หรือ `9090` จาก exercise นี้ เพื่อให้ exercise ถัดไปเริ่มได้โดยไม่มี port conflict
+1. ยืนยันว่าเราไม่เหลือ container ที่ใช้ port `3000` หรือ `9090` จาก exercise นี้ เพื่อให้ exercise ถัดไปเริ่มได้โดยไม่มี port conflict

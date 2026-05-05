@@ -10,7 +10,7 @@ lab:
 
 # สร้าง Grafana-managed Alert rule จาก Prometheus metrics
 
-ใน exercise นี้ คุณจะสร้าง Grafana-managed Alert rule จาก metric ที่เก็บใน Prometheus แล้วทดลองกระตุ้น metric ให้เงื่อนไข alert เป็นจริงผ่าน script ภายใน GitHub Codespaces เพื่อดูการเปลี่ยนสถานะจาก `Normal` ไปเป็น `Pending` หรือ `Firing`
+ใน exercise นี้ เราจะสร้าง Grafana-managed Alert rule จาก metric ที่เก็บใน Prometheus แล้วทดลองกระตุ้น metric ให้เงื่อนไข alert เป็นจริงผ่าน script ภายใน GitHub Codespaces เพื่อดูการเปลี่ยนสถานะจาก `Normal` ไปเป็น `Pending` หรือ `Firing`
 
 This exercise takes approximately **45** minutes.
 
@@ -31,7 +31,7 @@ This exercise takes approximately **45** minutes.
 
 ## Scenario
 
-ทีม backend มี endpoint สำคัญที่ต้องการจับตาว่ามี request spike เกิดขึ้นหรือไม่ ใน lab นี้คุณจะใช้ service ตัวอย่างที่ export metric ชื่อ `demo_requests_total` ออกมาให้ Prometheus scrape จากนั้นสร้าง Alert rule ให้ Grafana แจ้งเตือนเมื่อจำนวน request ใน 1 นาทีสูงเกินค่าที่กำหนด
+ทีม backend มี endpoint สำคัญที่ต้องการจับตาว่ามี request spike เกิดขึ้นหรือไม่ ใน lab นี้เราจะใช้ service ตัวอย่างที่ export metric ชื่อ `demo_requests_total` ออกมาให้ Prometheus scrape จากนั้นสร้าง Alert rule ให้ Grafana แจ้งเตือนเมื่อจำนวน request ใน 1 นาทีสูงเกินค่าที่กำหนด
 
 ---
 
@@ -111,7 +111,7 @@ This exercise takes approximately **45** minutes.
 
 ## Result
 
-คุณควรมี Grafana-managed Alert rule ที่อ้างอิง Prometheus metric จริง และสามารถเปลี่ยนสถานะตาม traffic ที่คุณสร้างขึ้นจากภายใน GitHub Codespaces ได้
+เราควรมี Grafana-managed Alert rule ที่อ้างอิง Prometheus metric จริง และสามารถเปลี่ยนสถานะตาม traffic ที่เราสร้างขึ้นจากภายใน GitHub Codespaces ได้
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 

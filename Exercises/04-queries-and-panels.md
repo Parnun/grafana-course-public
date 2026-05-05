@@ -10,7 +10,7 @@ lab:
 
 # สร้าง Dashboard แรกด้วย PromQL และ Panel พื้นฐานใน Grafana
 
-ใน exercise นี้ คุณจะใช้ Prometheus เป็นแหล่งข้อมูลหลักเพื่อสร้าง Dashboard แรกใน Grafana โดยเริ่มจาก dashboard skeleton ที่เตรียมไว้ แล้วเพิ่ม Panel แบบ Time series และ Stat พร้อมทั้งเขียน PromQL ให้ตรงกับคำถามทางธุรกิจที่ต้องการตอบ
+ใน exercise นี้ เราจะใช้ Prometheus เป็นแหล่งข้อมูลหลักเพื่อสร้าง Dashboard แรกใน Grafana โดยเริ่มจาก dashboard skeleton ที่เตรียมไว้ แล้วเพิ่ม Panel แบบ Time series และ Stat พร้อมทั้งเขียน PromQL ให้ตรงกับคำถามทางธุรกิจที่ต้องการตอบ
 
 This exercise takes approximately **45** minutes.
 
@@ -124,7 +124,7 @@ This exercise takes approximately **45** minutes.
 
 ## Result
 
-คุณควรมี dashboard แรกที่ประกอบด้วยอย่างน้อยหนึ่ง Time series panel และหนึ่ง Stat panel ซึ่งดึงข้อมูลจาก Prometheus ได้จริง
+เราควรมี dashboard แรกที่ประกอบด้วยอย่างน้อยหนึ่ง Time series panel และหนึ่ง Stat panel ซึ่งดึงข้อมูลจาก Prometheus ได้จริง
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 

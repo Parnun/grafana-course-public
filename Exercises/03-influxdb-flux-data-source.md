@@ -10,7 +10,7 @@ lab:
 
 # เชื่อมต่อ InfluxDB แบบ Flux Data source และ query ข้อมูล time series
 
-ใน exercise นี้ คุณจะเปิด InfluxDB 2.x คู่กับ Grafana ภายใน GitHub Codespaces แล้วเติมข้อมูลตัวอย่างสำหรับ lab ด้วย script ที่เตรียมไว้ หลังจากนั้นจะสร้าง InfluxDB Data source แบบ Flux และทดสอบ query ผ่านหน้า Explore
+ใน exercise นี้ เราจะเปิด InfluxDB 2.x คู่กับ Grafana ภายใน GitHub Codespaces แล้วเติมข้อมูลตัวอย่างสำหรับ lab ด้วย script ที่เตรียมไว้ หลังจากนั้นจะสร้าง InfluxDB Data source แบบ Flux และทดสอบ query ผ่านหน้า Explore
 
 This exercise takes approximately **45** minutes.
 
@@ -31,7 +31,7 @@ This exercise takes approximately **45** minutes.
 
 ## Scenario
 
-อีกทีมหนึ่งในองค์กรของคุณส่ง metrics เข้ามาเก็บใน InfluxDB และต้องการให้ผู้เรียนเห็นความแตกต่างระหว่าง PromQL กับ Flux โดยใช้ข้อมูลชุดเล็กที่ควบคุมได้ คุณจึงเตรียม InfluxDB 2.x พร้อม bucket และ token สำหรับ lab ไว้ล่วงหน้า
+อีกทีมหนึ่งในองค์กรของเราส่ง metrics เข้ามาเก็บใน InfluxDB และต้องการให้ผู้เรียนเห็นความแตกต่างระหว่าง PromQL กับ Flux โดยใช้ข้อมูลชุดเล็กที่ควบคุมได้ เราจึงเตรียม InfluxDB 2.x พร้อม bucket และ token สำหรับ lab ไว้ล่วงหน้า
 
 เป้าหมายคือให้ผู้เรียนเชื่อมต่อ InfluxDB ผ่าน Grafana ได้จริง และ query ข้อมูลที่เพิ่ง seed เข้าไปในระบบได้สำเร็จ
 
@@ -141,7 +141,7 @@ This exercise takes approximately **45** minutes.
 
 ## Result
 
-คุณควรมี InfluxDB Data source แบบ Flux ที่พร้อมใช้งานใน Grafana และ query ข้อมูลตัวอย่างที่เพิ่ง seed เข้าไปได้สำเร็จ
+เราควรมี InfluxDB Data source แบบ Flux ที่พร้อมใช้งานใน Grafana และ query ข้อมูลตัวอย่างที่เพิ่ง seed เข้าไปได้สำเร็จ
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 

@@ -10,11 +10,11 @@ lab:
 
 # เริ่มต้นสร้าง Grafana Panel plugin ใน GitHub Codespaces
 
-ใน exercise นี้ คุณจะเริ่มต้นสร้าง Grafana Panel plugin จาก tooling ทางการของ Grafana โดยใช้ `@grafana/create-plugin` ภายใน GitHub Codespaces จากนั้นจะเปิด Grafana ที่มาพร้อมกับ plugin scaffold และแก้ไข Panel ตัวอย่างเพื่อยืนยันว่า development workflow ทำงานจริง
+ใน exercise นี้ เราจะเริ่มต้นสร้าง Grafana Panel plugin จาก tooling ทางการของ Grafana โดยใช้ `@grafana/create-plugin` ภายใน GitHub Codespaces จากนั้นจะเปิด Grafana ที่มาพร้อมกับ plugin scaffold และแก้ไข Panel ตัวอย่างเพื่อยืนยันว่า development workflow ทำงานจริง
 
 This exercise takes approximately **60** minutes.
 
-> **Important**: Exercise นี้ใช้ Node.js LTS และ Docker Compose ตามแนวทางของ Grafana plugin tools หากใน Codespace ของคุณยังไม่มี Node.js เวอร์ชันที่เหมาะสม ให้ตรวจสอบไฟล์ `.nvmrc` ในโฟลเดอร์ lab นี้ก่อนเริ่ม
+> **Important**: Exercise นี้ใช้ Node.js LTS และ Docker Compose ตามแนวทางของ Grafana plugin tools หากใน Codespace ของเรายังไม่มี Node.js เวอร์ชันที่เหมาะสม ให้ตรวจสอบไฟล์ `.nvmrc` ในโฟลเดอร์ lab นี้ก่อนเริ่ม
 
 ## Learning Objectives
 
@@ -31,7 +31,7 @@ This exercise takes approximately **60** minutes.
 
 ## Scenario
 
-ทีมของคุณต้องการ visualization แบบเฉพาะทางที่ไม่มีอยู่ใน Panel มาตรฐานของ Grafana คุณจึงเริ่มจากการสร้าง Panel plugin ใหม่ด้วย generator ทางการเพื่อให้ได้โครงสร้างโปรเจกต์, Docker Compose, และ development workflow ที่ถูกต้องตั้งแต่ต้น
+ทีมของเราต้องการ visualization แบบเฉพาะทางที่ไม่มีอยู่ใน Panel มาตรฐานของ Grafana เราจึงเริ่มจากการสร้าง Panel plugin ใหม่ด้วย generator ทางการเพื่อให้ได้โครงสร้างโปรเจกต์, Docker Compose, และ development workflow ที่ถูกต้องตั้งแต่ต้น
 
 ---
 
@@ -118,7 +118,7 @@ This exercise takes approximately **60** minutes.
 
 1. ในหน้า panel editor ให้คลิกแท็บ **Queries** ด้านล่าง จากนั้นคลิก dropdown ของ Data source แล้วเลือก **TestData DB**
 
-1. ในแผง properties ด้านขวา ให้เลือก panel plugin ที่คุณสร้างขึ้นจากรายการ visualizations
+1. ในแผง properties ด้านขวา ให้เลือก panel plugin ที่เราสร้างขึ้นจากรายการ visualizations
 
 1. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
 
@@ -126,7 +126,7 @@ This exercise takes approximately **60** minutes.
 
 ## Result
 
-คุณควรมี Grafana Panel plugin ที่ scaffold จาก tool ทางการ, รันได้ใน GitHub Codespaces, และแก้ไข source code แล้วเห็นผลใน Grafana ได้จริง
+เราควรมี Grafana Panel plugin ที่ scaffold จาก tool ทางการ, รันได้ใน GitHub Codespaces, และแก้ไข source code แล้วเห็นผลใน Grafana ได้จริง
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 

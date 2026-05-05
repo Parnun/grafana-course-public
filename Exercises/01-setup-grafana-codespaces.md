@@ -10,7 +10,7 @@ lab:
 
 # เริ่มต้นใช้งาน Grafana บน GitHub Codespaces ด้วย Docker Compose
 
-ใน exercise นี้ คุณจะเตรียมสภาพแวดล้อม Grafana สำหรับ lab ทั้งชุดโดยใช้ Docker Compose ภายใน GitHub Codespaces และตรวจสอบว่า browser preview, port forwarding และ persistent storage ทำงานครบตามที่คาดไว้
+ใน exercise นี้ เราจะเตรียมสภาพแวดล้อม Grafana สำหรับ lab ทั้งชุดโดยใช้ Docker Compose ภายใน GitHub Codespaces และตรวจสอบว่า browser preview, port forwarding และ persistent storage ทำงานครบตามที่คาดไว้
 
 This exercise takes approximately **30** minutes.
 
@@ -32,7 +32,7 @@ This exercise takes approximately **30** minutes.
 
 ## Scenario
 
-ทีมพัฒนาของคุณต้องการ environment กลางสำหรับทดลองสร้าง Dashboard, เชื่อมต่อ Data source, และสร้าง Alert rule โดยไม่ต้องติดตั้ง Grafana ลงบนเครื่องส่วนตัวของผู้เรียนแต่ละคน คุณจึงเลือกใช้ GitHub Codespaces เพื่อให้ทุกคนเริ่มจาก baseline เดียวกัน
+ทีมพัฒนาของเราต้องการ environment กลางสำหรับทดลองสร้าง Dashboard, เชื่อมต่อ Data source, และสร้าง Alert rule โดยไม่ต้องติดตั้ง Grafana ลงบนเครื่องส่วนตัวของผู้เรียนแต่ละคน เราจึงเลือกใช้ GitHub Codespaces เพื่อให้ทุกคนเริ่มจาก baseline เดียวกัน
 
 เป้าหมายของ exercise นี้คือเปิด Grafana ให้พร้อมใช้งาน, ยืนยันว่า port `3000` เปิดถูกต้อง, และตรวจสอบว่าข้อมูลของ Grafana ถูกเก็บใน Docker volume เพื่อรองรับ exercise ถัดไป
 
@@ -103,11 +103,11 @@ This exercise takes approximately **30** minutes.
 
 1. อธิบายว่า volume นี้ช่วยเก็บข้อมูลจำพวก configuration, user, dashboard, และ metadata ของ Grafana
 
-1. หากจะทำ exercise ถัดไปทันที คุณอาจปล่อย stack นี้ไว้ชั่วคราวได้ แต่ถ้าต้องการ reset environment ให้ทำตามขั้นตอนในหัวข้อท้าย exercise นี้
+1. หากจะทำ exercise ถัดไปทันที เราอาจปล่อย stack นี้ไว้ชั่วคราวได้ แต่ถ้าต้องการ reset environment ให้ทำตามขั้นตอนในหัวข้อท้าย exercise นี้
 
 ## Result
 
-คุณควรมี Grafana ที่เปิดใช้งานได้ใน GitHub Codespaces, login ได้ผ่าน port `3000`, และมี Docker volume สำหรับเก็บข้อมูลเรียบร้อยแล้ว
+เราควรมี Grafana ที่เปิดใช้งานได้ใน GitHub Codespaces, login ได้ผ่าน port `3000`, และมี Docker volume สำหรับเก็บข้อมูลเรียบร้อยแล้ว
 
 ## เตรียม environment สำหรับ exercise ถัดไป
 
