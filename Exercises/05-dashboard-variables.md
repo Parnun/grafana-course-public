@@ -141,13 +141,12 @@ This exercise takes approximately **45** minutes.
 
 1. กลับไปที่ section **Variables** แล้วคลิก **+ Add variable** อีกครั้ง
 
-1. ตั้งค่า Name เป็น `region`
-
 1. ในช่อง **Select variable type** ให้เลือก `Query`
+2. ตั้งค่า Name เป็น `region`
 
-1. เลือก Data source เป็น `InfluxDB`
+3. เลือก Data source เป็น `InfluxDB`
 
-1. ในช่อง Query ให้ใส่ Flux query ต่อไปนี้
+4. ในช่อง Query ให้ใส่ Flux query ต่อไปนี้
 
    ```flux
    from(bucket: "system")
@@ -160,15 +159,15 @@ This exercise takes approximately **45** minutes.
 
    > **Note**: Query นี้กรอง data ตาม `service` ที่เลือกจาก variable `$service` แล้วดึงเฉพาะค่า tag `region` ที่ไม่ซ้ำ ทำให้ dropdown `region` เปลี่ยนตาม service ที่เลือก
 
-1. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้
+5. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้
 
-1. กด **Preview of values** เพื่อยืนยันว่ามีค่า region ถูกดึงมาอย่างน้อย 1 ค่า
+6. กด **Preview of values** เพื่อยืนยันว่ามีค่า region ถูกดึงมาอย่างน้อย 1 ค่า
 
-1. คลิก **Apply**
+7. คลิก **Apply**
 
-1. ยืนยันว่าด้านบนของ dashboard มี dropdown สำหรับ `service` และ `region`
+8. ยืนยันว่าด้านบนของ dashboard มี dropdown สำหรับ `service` และ `region`
 
-1. ลองเปลี่ยนค่า `service` แล้วสังเกตว่า dropdown `region` เปลี่ยนตัวเลือกตาม
+9.  ลองเปลี่ยนค่า `service` แล้วสังเกตว่า dropdown `region` เปลี่ยนตัวเลือกตาม
 
 
 ## ใช้ Variables ใน panel query
