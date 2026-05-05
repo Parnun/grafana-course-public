@@ -65,27 +65,38 @@ This exercise takes approximately **45** minutes.
 
 ## สร้าง Time series panel
 
-1. ใน dashboard ที่เพิ่ง import ให้คลิก **Add visualization**
+1. ใน dashboard ที่เพิ่ง import ให้คลิกปุ่ม **Edit** ที่มุมบนขวาเพื่อเข้าสู่ edit mode
 
-1. เลือก Prometheus Data source
+1. คลิกปุ่ม **Add new element** (ไอคอน "+" สีน้ำเงิน) ในแถบ toolbar
 
-1. ใส่ query ต่อไปนี้
+1. panel ใหม่จะปรากฏบน canvas ให้คลิกที่ panel นั้น แล้วเลือก **Configure visualization**
+
+1. ในหน้า panel editor ให้คลิกแท็บ **Queries** ด้านล่าง จากนั้นคลิก dropdown ของ Data source แล้วเลือก **Prometheus**
+
+1. ในช่อง query ด้านขวา ให้คลิกปุ่ม **Code** เพื่อสลับเป็น code mode แล้วพิมพ์ query ต่อไปนี้
 
    ```promql
    up{job="prometheus"}
    ```
 
-1. ตั้งชื่อ panel เป็น `Prometheus Availability`
+1. คลิก **Run Query** เพื่อทดสอบดึงข้อมูล จากนั้นดูที่ส่วน visualization suggestions ด้านขวา ให้เลือก **Time series** (ตัวแรกในรายการ) — Grafana จะแสดง properties pane ของ panel ขึ้นมา
 
 1. ตรวจสอบว่า panel แสดงค่า `1` ตลอดช่วงเวลา แปลว่า target ยังตอบสนองปกติ
 
-1. ปรับ legend ให้แสดง `{{instance}}`
+1. ในแผง properties ด้านขวา ให้ขยาย **Panel options** แล้วกรอกชื่อ panel ในช่อง **Title** ว่า `Prometheus Availability`
+
+1. กลับไปที่แท็บ **Queries** ในส่วนด้านล่างของหน้า panel editor ให้มองหา **Legend** ที่อยู่ใต้ช่อง PromQL จากนั้นเปลี่ยน option เป็น **Custom** แล้วกรอก
+
+   ```
+   {{instance}}
+   ```
+กดปุ่ม enter เพื่อยืนยันการเปลี่ยนแปลง จากนั้นสังเกตว่า legend ของเส้นในกราฟเปลี่ยนจากค่า `instance` เป็นค่าที่แทนที่ตัวแปรนี้ เช่น `localhost:9090` 
 
 > 📸 **Screenshot**: หน้า panel editor ที่มี query `up{job="prometheus"}` และกราฟแสดงเส้นค่า `1`
 
 ## สร้าง Stat panel สำหรับ metadata
 
-1. เพิ่ม visualization ใหม่อีกหนึ่งรายการ
+1. คลิกปุ่ม **Add new element** อีกครั้ง แล้วคลิก panel ใหม่บน canvas จากนั้นเลือก **Configure visualization**
 
 1. ใช้ query ต่อไปนี้
 
@@ -93,13 +104,13 @@ This exercise takes approximately **45** minutes.
    prometheus_build_info
    ```
 
-1. เปลี่ยน visualization เป็น **Stat**
+1. เลือก visualization เป็น **Stat**
 
 1. ตั้งชื่อ panel เป็น `Prometheus Build Info`
 
-1. อธิบายว่าค่า metric นี้ใช้ยืนยัน metadata ของ binary ที่กำลังรันอยู่ ไม่ได้ใช้วัดโหลดแบบ time series ทั่วไป
+ ค่า metric นี้ใช้ยืนยัน metadata ของ binary ที่กำลังรันอยู่ ไม่ได้ใช้วัดโหลดแบบ time series ทั่วไป
 
-> 📸 **Screenshot**: หน้า panel editor ของ Stat panel ที่ใช้ query `prometheus_build_info`
+![alt text](images/prometheus_build_info.png)
 
 ## จัดหน้า dashboard และบันทึก
 
@@ -109,7 +120,7 @@ This exercise takes approximately **45** minutes.
 
 1. ใส่คำอธิบายสั้น ๆ เช่น `Starter dashboard for platform health checks`
 
-1. อธิบายว่าการเลือก panel ให้เหมาะกับคำถามสำคัญพอ ๆ กับการเขียน query ให้ถูกต้อง
+การเลือก panel ให้เหมาะกับคำถามสำคัญพอ ๆ กับการเขียน query ให้ถูกต้อง
 
 ## Result
 

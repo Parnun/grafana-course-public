@@ -110,9 +110,15 @@ This exercise takes approximately **60** minutes.
 
 1. บันทึกไฟล์ แล้ว refresh หน้า Grafana
 
-1. ไปที่ **Dashboards** > **New** > **Dashboard** > **Add visualization**
+1. ไปที่ **Dashboards** > **New** > **New dashboard** แล้วคลิก **Edit** ที่มุมบนขวาเพื่อเข้าสู่ edit mode
 
-1. ใช้ `TestData DB` เป็น Data source และเลือก panel plugin ของคุณ
+1. คลิกปุ่ม **Add new element** (ไอคอน "+" สีน้ำเงิน) ในแถบ toolbar
+
+1. panel ใหม่จะปรากฏบน canvas ให้คลิกที่ panel นั้น แล้วเลือก **Configure visualization**
+
+1. ในหน้า panel editor ให้คลิกแท็บ **Queries** ด้านล่าง จากนั้นคลิก dropdown ของ Data source แล้วเลือก **TestData DB**
+
+1. ในแผง properties ด้านขวา ให้เลือก panel plugin ที่คุณสร้างขึ้นจากรายการ visualizations
 
 1. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
 
