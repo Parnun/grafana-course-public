@@ -66,23 +66,45 @@ lab:
 
 ## สร้าง Alert rule
 
-1. ไปที่ **Alerts & IRM** > **Alert rules** > **New alert rule**
+1. ไปที่ **Alerting** > **Alert rules** > **New alert rule**
 
-1. ตั้งชื่อ rule เป็น `High Demo Traffic`
+2. ตั้งชื่อ rule เป็น `High Demo Traffic`
 
-1. ในส่วน query ให้ใช้ Prometheus Data source และใส่ query นี้
+3. ในส่วน query ให้ใช้ Prometheus Data source และใส่ query นี้
 
    ```promql
    increase(demo_requests_total[1m])
    ```
 
-1. ตั้งเงื่อนไขให้ alert ทำงานเมื่อค่ามากกว่า `10`
+4. ตั้งเงื่อนไขให้ alert ทำงานเมื่อค่ามากกว่า `10`
 
-1. สร้าง evaluation group ใหม่โดยใช้ interval `10s`
+5. ในส่วน **Add folder and labels** กดสร้าง folder ใหม่ชื่อ `Demo Alerts`
+6. สร้าง **evaluation group** ใหม่โดยใช้ชื่อว่า **interval** และกำหนดเป็น `10s`
 
-1. ตั้ง pending period เป็น `0s`
+7. ตั้ง pending period เป็น `0s`
 
-1. คลิก **Save rule**
+   > - **Evaluation interval `10s`**: กำหนดว่า Grafana จะรัน query เพื่อตรวจสอบเงื่อนไข alert ทุกๆ กี่วินาที ค่าปกติในระบบจริงมักใช้ `1m` หรือ `5m` แต่ใน lab นี้ใช้ `10s` เพื่อให้เห็นผลเร็ว 
+
+   > - **Pending period `0s`**: คือช่วงเวลาที่เงื่อนไขต้องเป็นจริงต่อเนื่องก่อนที่ alert จะเปลี่ยนสถานะเป็น `Firing` ค่าปกติเช่น `5m` ใช้เพื่อกรอง false positive ที่เกิดขึ้นแค่ชั่วคราว แต่ใน lab นี้ตั้งเป็น `0s` เพื่อให้ alert เปลี่ยนสถานะทันทีที่เงื่อนไขเป็นจริงครั้งแรก ทำให้ทดสอบได้สะดวก
+
+1. ลงมาที่ **Configure notifications** > เลือก **Create Contact points**
+
+> **Note สำหรับ Grafana OSS**: Email contact point ต้องการการตั้งค่า SMTP ใน `grafana.ini` ก่อน ใน lab นี้เราจะ **สร้างและทดสอบ contact point ผ่าน Test button** แทนการรับ email จริง เพื่อให้เห็น flow ทั้งหมดโดยไม่ต้องพึ่ง SMTP server ภายนอก
+
+1. คลิก **+ New contact point**
+
+2. ตั้งชื่อ contact point เป็น `Demo Email`
+
+3. ในช่อง **Integration** เลือก `Email`
+
+4. ในช่อง **Addresses** ใส่ email address ตัวอย่าง เช่น `training@nextflow.in.th`
+
+   > ใส่ address อะไรก็ได้ในขั้นตอนนี้ เพราะเราจะใช้ปุ่ม **Test** แทนการส่ง email จริง
+
+5. คลิก **Save contact point**
+6. กลับมาที่หน้า Alert rule แล้วเลือก contact point `Demo Email` ในส่วน **Configure notifications**
+   
+7. คลิก **Save rule**
 
 ## กระตุ้น metric ให้ alert ทำงาน
 
