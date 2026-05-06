@@ -131,7 +131,6 @@ lab:
 
 1. บันทึก dashboard
 
-> 📸 **Screenshot**: หน้า `Target Detail` ที่มี dropdown `job`, `instance` และกราฟ `Selected Target Status`
 
 ## ตั้งค่า Dashboard links จาก Overview ไป Detail
 
@@ -147,7 +146,6 @@ lab:
 
 1. คลิก **Save**
 
-> 📸 **Screenshot**: หน้าตั้งค่า Dashboard link ที่ชี้ไป `Target Detail`
 
 ## ตั้งค่า Data links ใน Table panel
 
