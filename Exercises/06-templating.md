@@ -55,8 +55,6 @@ lab:
 
 1. login ด้วย `admin` / `grafanaadmin`
 
-> 📸 **Screenshot**: หน้า Grafana หลัง login สำเร็จใน GitHub Codespaces โดยเห็น URL ของ forwarded port `3000`
-
 ## เพิ่ม Prometheus Data source
 
 1. ไปที่ **Connections** > **Add new connection**

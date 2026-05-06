@@ -113,13 +113,13 @@ lab:
 
 ## สร้าง variable `service`
 
-1. ในฟอร์มที่เปิดจาก **+ Add variable** ให้ตั้งค่า Name เป็น `service`
+1. ในฟอร์มที่เปิดจาก **+ Add variable** 
+2. ในช่อง **Select variable type** ให้เลือก `Query`
+3. ให้ตั้งค่า Name เป็น `service`
 
-1. ในช่อง **Select variable type** ให้เลือก `Query`
+4. เลือก Data source เป็น `InfluxDB`
 
-1. เลือก Data source เป็น `InfluxDB`
-
-1. ในช่อง Query ให้ใส่ Flux query ต่อไปนี้
+5. ในช่อง Query ให้ใส่ Flux query ต่อไปนี้
 
    ```flux
    import "influxdata/influxdb/schema"
@@ -129,11 +129,13 @@ lab:
 
    > **Note**: `schema.tagValues()` เป็น Flux function ที่ดึงค่า tag ที่มีอยู่ใน bucket โดยตรง Grafana จะใช้คอลัมน์ `_value` จากผลลัพธ์เป็นตัวเลือกใน dropdown
 
-1. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้
+6. กด **Preview of values** เพื่อยืนยันว่ามีค่า `api`, `worker`, `web` ถูกดึงมา
 
-1. กด **Preview of values** เพื่อยืนยันว่ามีค่า `api`, `worker`, `web` ถูกดึงมา
 
-1. คลิก **Apply**
+7. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้
+
+
+8. คลิก **Close**
 
 
 ## สร้าง variable `region`
@@ -162,7 +164,7 @@ lab:
 
 6. กด **Preview of values** เพื่อยืนยันว่ามีค่า region ถูกดึงมาอย่างน้อย 1 ค่า
 
-7. คลิก **Apply**
+7. คลิก **Close**
 
 8. ยืนยันว่าด้านบนของ dashboard มี dropdown สำหรับ `service` และ `region`
 
