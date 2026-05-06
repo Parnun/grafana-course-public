@@ -65,7 +65,7 @@ lab:
 
 1. คลิก **Save & test**
 
-> 📸 **Screenshot**: หน้า Prometheus Data source พร้อมผลลัพธ์หลังคลิก **Save & test**
+
 
 ## นำเข้า dashboard template เริ่มต้น
 
