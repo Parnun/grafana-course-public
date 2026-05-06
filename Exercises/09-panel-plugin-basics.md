@@ -57,9 +57,9 @@ lab:
 
 1. เมื่อตัว generator ถาม ให้เลือกค่าที่ใกล้เคียงนี้
 
-   - Organization: `student`
-   - Plugin name: `codespace-panel`
    - Plugin type: `panel`
+   - Plugin name: `codespace-panel`
+   - Organization: `student`
 
 
 ## รัน plugin ในโหมดพัฒนา
@@ -82,7 +82,7 @@ lab:
    npm run dev
    ```
 
-1. เปิด Terminal ใหม่อีกแท็บหนึ่ง แล้วรัน Grafana ที่มากับ scaffold
+1. เปิด Terminal ใหม่อีกแท็บหนึ่ง ที่ folder **09-panel-plugin-basics** แล้วรัน Grafana ที่มากับ scaffold
 
    ```bash
    docker compose up
@@ -99,25 +99,20 @@ lab:
 1. หากต้องการยืนยันเพิ่ม ให้ดู log ใน Terminal ที่รัน `docker compose up` และสังเกตข้อความลักษณะ `Plugin registered`
 
 
-## แก้ไข panel ตัวอย่าง
+## ทดสอบ Panel ตัวอย่าง
 
-1. เปิดไฟล์ `src/components/SimplePanel.tsx`
-
-1. เปลี่ยนข้อความหรือสีของ panel ตามโจทย์ที่ผู้สอนกำหนด
-
-1. บันทึกไฟล์ แล้ว refresh หน้า Grafana
 
 1. ไปที่ **Dashboards** > **New** > **New dashboard** แล้วคลิก **Edit** ที่มุมบนขวาเพื่อเข้าสู่ edit mode
 
-1. คลิกปุ่ม **Add new element** (ไอคอน "+" สีน้ำเงิน) ในแถบ toolbar
+2. คลิกปุ่ม **Add new element** (ไอคอน "+" สีน้ำเงิน) ในแถบ toolbar
 
-1. panel ใหม่จะปรากฏบน canvas ให้คลิกที่ panel นั้น แล้วเลือก **Configure visualization**
+3. panel ใหม่จะปรากฏบน canvas ให้คลิกที่ panel นั้น แล้วเลือก **Configure visualization**
 
-1. ในหน้า panel editor ให้คลิกแท็บ **Queries** ด้านล่าง จากนั้นคลิก dropdown ของ Data source แล้วเลือก **TestData DB**
+4. ในหน้า panel editor ให้คลิกแท็บ **Queries** ด้านล่าง จากนั้นคลิก dropdown ของ Data source แล้วเลือก **TestData DB**
 
-1. ในแผง properties ด้านขวา ให้เลือก panel plugin ที่เราสร้างขึ้นจากรายการ visualizations
+5. ในแผง properties ด้านขวา ให้เลือก panel plugin ที่เราสร้างขึ้นจากรายการ visualizations
 
-1. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
+6. ยืนยันว่าการแก้ไขใน source code สะท้อนใน Grafana ได้จริง
 
 
 ## Result
