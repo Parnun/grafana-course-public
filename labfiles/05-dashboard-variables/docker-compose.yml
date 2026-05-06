@@ -6,6 +6,7 @@ services:
     environment:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: grafanaadmin
+      GF_USERS_DEFAULT_THEME: light
     ports:
       - "3000:3000"
     volumes:
