@@ -55,8 +55,6 @@ lab:
 
 1. login ด้วย `admin` / `grafanaadmin`
 
-> 📸 **Screenshot**: หน้า Grafana หลัง login สำเร็จใน GitHub Codespaces โดยเห็น URL ของ forwarded port `3000`
-
 ## เพิ่ม Prometheus Data source
 
 1. ไปที่ **Connections** > **Add new connection**
@@ -67,7 +65,7 @@ lab:
 
 1. คลิก **Save & test**
 
-> 📸 **Screenshot**: หน้า Prometheus Data source พร้อมผลลัพธ์หลังคลิก **Save & test**
+
 
 ## นำเข้า dashboard template เริ่มต้น
 
@@ -83,49 +81,59 @@ lab:
 
 ## สร้าง Variables สำหรับ Templating
 
+### สร้าง **service** variable
+
 1. คลิกปุ่ม **Edit** ที่มุมซ้ายบนของ dashboard
 
 1. จาก right-toolbar ให้เปิด **Dashboard options**
 
 1. ไปที่ section **Variables** แล้วคลิก **+ Add variable** เพื่อสร้าง variable แรก
 
-1. ตั้งค่า Name เป็น `service`
-
 1. ในช่อง **Select variable type** ให้เลือก `Query`
+2. ตั้งค่า Name เป็น `service`
 
-1. สำหรับการสอน ให้ชี้ให้ผู้เรียนเห็นว่าจากเอกสารล่าสุดของ Grafana มีตัวเลือกหลัก เช่น `Query`, `Custom`, `Text box`, `Constant`, `Data source`, `Interval`, `Filters`, และ `Switch`; สำหรับ `service` ต้องใช้ `Query` เพราะค่ามาจาก Prometheus
 
 1. เลือก Data source เป็น `Prometheus`
 
-1. ใน Query options ให้เลือก Query type เป็น `Label values`
+2. ใน Query options ให้เลือก Query type เป็น `Label values`
 
-1. ตั้งค่า Label เป็น `job` และ Metric เป็น `up`
+3. ตั้งค่า Label เป็น `job` 
+4. ตั้งค่า Metric เป็น `up`
 
-1. เปิด `Include All option` แล้วคลิก **Apply**
+5. เปิด  **Include All option** เพื่อให้ผู้ใช้เลือกได้มากกว่าหนึ่ง service และมีตัวเลือก `All`
 
-1. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้
+6. กด `Preview` เพื่อดูค่าที่จะได้จาก query นี้ ควรเห็นรายการของ service ที่มีอยู่ใน Prometheus
+7. คลิก **Close** เพื่อบันทึก variable นี้
 
-1. กลับไปที่ section **Variables** แล้วคลิก **+ Add variable** อีกครั้งเพื่อสร้าง variable ชื่อ `instance`
+### สร้าง **instance** variable
 
-1. ในช่อง **Select variable type** ให้เลือก `Query`
+7.  กลับไปที่ section **Variables** แล้วคลิก **+ Add variable** อีกครั้งเพื่อสร้าง variable ชื่อ `instance`
 
-1. เลือก Data source เป็น `Prometheus`
+8.  ในช่อง **Select variable type** ให้เลือก `Query`
 
-1. ใน Query options ให้เลือก Query type เป็น `Label values`
+9.  เลือก Data source เป็น `Prometheus`
 
-1. ตั้งค่า Label เป็น `instance` และ Metric เป็น `up{job=~"$service"}`
+10. ใน Query options ให้เลือก Query type เป็น `Label values`
 
-1. คลิก **Apply**
+11. ตั้งค่า Label เป็น `instance` 
+12. ตั้งค่า Metric เป็น `up`
+13. ตั้งค่า Label filter เป็น `{job=~"$service"}` เพื่อให้ `instance` variable ขึ้นกับค่าที่เลือกใน `service` โดยเราจะเห็นค่าของ service ให้เลือกในรายการ เช่น `grafana` และ `prometheus` 
 
-1. ถ้าเห็นตัวเลือก **Refresh** ให้เลือก `On dashboard load`; ถ้าไม่เห็นตัวเลือกนี้ ให้ข้ามขั้นตอนนี้ได้ โดย `instance` ยังเป็น chained variable ที่ขึ้นกับ `$service`
+14. เปิด **Include All option** 
 
-1. กลับไปที่ section **Variables** แล้วคลิก **+ Add variable** อีกครั้งเพื่อสร้าง variable ชื่อ `window`
 
-1. ในช่อง **Select variable type** ให้เลือก `Custom`
+15. คลิก **Preview** เพื่อดูค่าที่จะได้จาก query นี้ ควรเห็นรายการของ instance ที่ขึ้นกับ service ที่เลือก เช่น `grafana:3000` หรือ `prometheus:9090`
+16. คลิก **Close**
 
-1. ใส่ Values เป็น `1m,5m,15m` และ `Custom` เหมาะกับค่าที่เรากำหนดเองและไม่ต้อง query จาก data source
+### สร้าง **window** variable
 
-1. คลิก **Apply** และตรวจสอบว่า dropdown ทั้ง `service`, `instance`, `window` แสดงที่ด้านบน dashboard
+15. กลับไปที่ section **Variables** แล้วคลิก **+ Add variable** 
+16. ในช่อง **Select variable type** ให้เลือก `Custom`
+17. ตั้งค่า Name เป็น `window`
+
+18. ใส่ Values เป็น `1m,5m,15m` และ `Custom` เหมาะกับค่าที่เรากำหนดเองและไม่ต้อง query จาก data source
+
+19. คลิก **Apply** และตรวจสอบว่า dropdown ทั้ง `service`, `instance`, `window` แสดงที่ด้านบน dashboard
 
 
 ## ใช้ Variables ใน Panel query และเปิด panel repeat
@@ -134,19 +142,21 @@ lab:
 
 1. คลิก **Add new element** แล้วเลือก **Configure visualization**
 
-1. เลือก Data source เป็น `Prometheus` และใส่ query
+1. เลือก Data source เป็น `Prometheus` และใส่ code query
 
    ```promql
-   avg_over_time(up{job=~"$service", instance=~"$instance"}[$window])
+   rate(process_cpu_seconds_total{job=~"$service", instance=~"$instance"}[$window])
    ```
+
+   > **ทำไมไม่ใช้ `up` metric?** `up` คืนค่าเป็น `0` หรือ `1` เท่านั้น ดังนั้น `avg_over_time(up[...])` จะได้ค่าเท่ากับ `1` ตลอดเมื่อ service ทำงานปกติ ทำให้การเปลี่ยน `$window` ไม่มีผลต่อกราฟ เราใช้ `rate(process_cpu_seconds_total[$window])` แทน เพราะเป็น metric ที่เปลี่ยนแปลงตามเวลาจริงและมีอยู่ทั้งใน `prometheus` และ `grafana` jobs ทำให้เห็นชัดเจนว่า window ที่ใหญ่กว่าให้เส้นกราฟที่เรียบกว่า
+
+1. คลิก **Run query** แล้วทดลองเปลี่ยนค่า dropdown ด้านบนเพื่อดูว่า panel เปลี่ยนผลลัพธ์ตาม variable
 
 1. เลือก visualization เป็น **Time series**
 
-1. ตั้งชื่อ panel เป็น `Availability (templated)`
+1. ตั้งชื่อ panel เป็น `CPU Rate (templated)`
 
-1. ในส่วน panel options ให้ตั้งค่า repeat by variable เป็น `instance`
 
-1. คลิก **Run query** แล้วทดลองเปลี่ยนค่า dropdown ด้านบนเพื่อดูว่า panel เปลี่ยนผลลัพธ์ตาม variable
 
 
 ## ตรวจสอบพฤติกรรม template ใน URL

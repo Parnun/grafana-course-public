@@ -92,8 +92,6 @@ This exercise takes approximately **45** minutes.
    ```
 กดปุ่ม enter เพื่อยืนยันการเปลี่ยนแปลง จากนั้นสังเกตว่า legend ของเส้นในกราฟเปลี่ยนจากค่า `instance` เป็นค่าที่แทนที่ตัวแปรนี้ เช่น `localhost:9090` 
 
-> 📸 **Screenshot**: หน้า panel editor ที่มี query `up{job="prometheus"}` และกราฟแสดงเส้นค่า `1`
-
 ## สร้าง Stat panel สำหรับ metadata
 
 1. คลิกปุ่ม **Add new element** อีกครั้ง แล้วคลิก panel ใหม่บน canvas จากนั้นเลือก **Configure visualization**
