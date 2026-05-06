@@ -82,7 +82,8 @@ jobs:
             fi
 
             git commit --amend -m "distribute: ${SOURCE_SHA} (from ${SOURCE_REPO})"
-            git push --force-with-lease "${PUSH_URL}" HEAD:refs/heads/main
+            git push "${PUSH_URL}" HEAD:refs/heads/main \
+              --force-with-lease=refs/heads/main:${REMOTE_MAIN_SHA}
           else
             git push "${PUSH_URL}" HEAD:refs/heads/main
           fi
