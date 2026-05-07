@@ -30,7 +30,11 @@ repository นี้รวบรวมแบบฝึกหัดภาคปฏ
 Exercises/          คำอธิบายขั้นตอนการทำแบบฝึกหัดแต่ละ lab
 labfiles/           Docker Compose environment และไฟล์ starter สำหรับแต่ละ lab
 lab-preparation.md  คู่มือเตรียม environment ก่อนเริ่ม lab แรก
+
 ```
+---
+## ไฟล์ presentation
+- [grafana-for-developer-course-presentation.pdf](/grafana-for-developer-course-presentation.pdf) ไฟล์ PDF ของ presentation
 
 ---
 
