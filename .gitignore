@@ -28,6 +28,3 @@ build/
 .env
 .env.local
 *.secret
-
-# PDF source files (if generated)
-*.pdf
